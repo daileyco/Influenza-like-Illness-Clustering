@@ -1,19 +1,22 @@
 # script to write the adjacency files used by satscan
 
 
-## load data
+## Load Data
 load("./01-Data/01-Processed-Data/acs.rdata")
 load("./01-Data/01-Processed-Data/spatial.rdata")
 
 
-## packages
+## Packages
 library(dplyr)
 library(tidyr)
 library(sf)
 
 
+## Helper Functions
 
-# #coordinates for spatial relation
+
+
+## coordinates for spatial relation
 # pop.centers.state.coords <- cbind(pop.centers.state, st_coordinates(pop.centers.state)) %>% 
 #   as.data.frame() %>% 
 #   select(State = STNAME, x=X, y=Y, pop = POPULATION) 
@@ -60,11 +63,17 @@ write.table(acs1620,
 
 
 
+## Save
 
+
+
+## Clean Environment
 rm(list = ls())
 gc()
 
 
+
+## Old
 # library(readr)
 # # set up parameters file manually first run, now edit within loop
 # param <- read_file("./01-Data/02-Analytic-Data/SaTScan/input/parameters.prm")

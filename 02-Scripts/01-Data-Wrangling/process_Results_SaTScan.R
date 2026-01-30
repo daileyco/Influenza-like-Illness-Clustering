@@ -1,16 +1,16 @@
 # processing satscan results
 
 
-## load data
+## Load Data
 load("./01-Data/02-Analytic-Data/ili.rds")
 
 
 
-## packages
+## Packages
 library(dplyr)
 library(purrr)
 
-
+## Helper Functions
 
 
 
@@ -102,13 +102,13 @@ all.clusters.df$`Cluster Size` <- sapply(all.clusters.df$`Location IDs included`
 clusters <- all.clusters.df
 
 
-## save
+## Save
 save(clusters, file = "./01-Data/02-Analytic-Data/satscan_clusters.rds")
 
 
 
 
-## clean environment
+## Clean Environment
 rm(list = ls())
 gc()
 

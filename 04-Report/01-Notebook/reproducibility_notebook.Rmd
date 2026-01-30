@@ -25,6 +25,16 @@ This document is my "reproducibility notebook", basically, a data analyst's vers
 # Approach
 
 
+## Data Processing / Initial Cleaning
+
+
+
+### Influenza-like Illness
+ILI data from FluView and Florida Department of Public Health were processed using following script:
+
+Data were stored in a dataframe with each row corresponding to a specific location (state) during a specific week (epi week and date) with the reported counts of ILI and total patients for that location during that week. 
+
+Data were originally split for New York City and New York; I summed those to a single location. Also, data from FluView are missing Florida data completely, but LD was able to obtain data from the Florida Department of Public Health. The data greatly overlap, but the Florida data seems to be missing some of the earliest and latest data (effectively trimming the dataset from both timepoints ends). 
 
 ```{r}
 source("./02-Scripts/01-Data-Wrangling/process_Data_ILI.R")
@@ -36,20 +46,54 @@ source("./02-Scripts/01-Data-Wrangling/process_Data_ILI_Rates_of_Change.R")
 
 
 
-```{r}
-source("./02-Scripts/01-Data-Wrangling/prep_Files_SaTScan_ILI.R")
-```
+### Mobility Data
 
+Worker commuting flows from the American Community Survey for both 2011-2015 and 2016-2020 are downloaded as excel spreadsheets, though not in a tidy data format (e.g., there is extra fluff at the top and bottom of the excel tables). The ACS data essentially contain four main variables: a location of residence, a location of work, a point estimate of the number of workers commuting between the two locations, and an estimate of uncertainty (i.e., margin of error) for the point estimate. These data are aggregated to the state level to align with the ILI data. In aggregating the data to the state level, the measure of uncertainty is lost; is there a simple way to account for each margin of error in aggregate data? For now, we will focus on the locations and the point estimate and potentially return to the uncertainty later for sensitivity analyses.   
+  
+The process script is simple enough as it just loads the data, categorizes the type of commuter flow (intracounty, intrastate, interstate, international), aggregates totals to the state level, combines the data from both time ranges, and then saves an .rds file. Additionally, the data are expanded to have entries for all possible combinations of locations; this allows me to note the "unobserved" flows.  
 
-
+The script is sourced using the following code:
 ```{r}
 source("./02-Scripts/01-Data-Wrangling/process_Data_ACS.R")
 ```
 
+### Spatial Data
+
+Next, we process some spatial data: shapefiles for US counties and states, coordinates for population centers for counties and states
 
 ```{r}
-source("./02-Scripts/01-Data-Wrangling/process_Data_Spatial.R")
+source("./02-Scripts/01-Data-Wrangling/process_Data_Spatial.R", echo = T)
 ```
+
+
+
+
+
+
+
+
+
+
+
+## Data Management & Analysis Setup
+
+
+### Writing SaTScan Data Input Files
+
+Next, we need to write the files for input in SaTScan. Basically a coordinates file used in spatial scan statistics (location-label lat lon) (going to revisit this as you can supply a network with pairwise distances, inverted commuter flow?); a "case" file, here the proportions of cumulative incidence (square root transformed) OR ("2" suffix) the sub-component of shannon entropy (sqrt(p*log(p)); also square root transformed as indicated). The method assumes a normally distributed continuous variable. 
+
+In addition to a "normally" distributed "case" characteristic, each value needs a weight assigned to it so that the underlying logic/rationale / variance estimation understands that the given value is an "average" for the entire region (or data sample). I found in the help documentation for satscan that a population can be used instead of a weight. So, at first I thought to use the cumulative total patients (the weekly denominator for ILI data). However, I'm also think that it may be better to use the cumulative total patients count for a single location season for each week in that season. But im torn. Variance in proportion of cumulative ILI may depend on ... proportion of observed patients at that location during that week. I don't think it should be the raw counts for either ILI or total patients, the whole proportion calculation is a work around to known bias. So, we'll just go with total patients for now. 
+
+
+
+Case file has (location-label week value value-weight). So, an individual case file is written for each week; the coordinates file is set once. The text files are written in the following scripts:
+
+
+
+```{r}
+source("./02-Scripts/01-Data-Wrangling/prep_Files_SaTScan_ILI.R")
+```
+
 
 
 
@@ -59,15 +103,44 @@ source("./02-Scripts/01-Data-Wrangling/prep_Files_SaTScan_Adjacency.R")
 
 
 
+
+### SaTScan Parameters
+
+Intermediate step, manually create a parameters file for satscan to read. I think `satscan` package helps with that but I just used gui to save file after manually selecting options. 
+
+
+
+## Analysis - SaTScan 
+
+Next, I wrote scripts to send commands to the command prompt to run the satscan batch mode (executable file? idk how to say). The only option needed there is a parameters file indicating the input files (coordinates, cases, ...) and the model options. 
+
+The script loops over list of dates and replaces the input file string in the parameters file with each run. So, the program does a purely spatial clustering analysis assuming a continuously distributed outcome variable. 
+
 ```{r}
 source("./02-Scripts/04-Analysis/run_Program_SaTScan.R")
 ```
+
+
+Each SaTScan run generates an output text file (can do shapefiles and maybe R package readable files too, but who likes easy integration?). The text files contain information about each detected cluster (if any as I had to debug). 
+
+
+
+
+
+## SaTScan Results Processing
+
+The following script reads the output text files and parse the data for each cluster into a dataframe:
 
 
 ```{r}
 source("./02-Scripts/01-Data-Wrangling/process_Results_SaTScan.R")
 ```
 
+These will be transferred to another repo for a secondary analysis. 
+
+
+
+## Visualizations
 
 ```{r}
 source("./02-Scripts/03-Visualization/generate_Table_Summaries.R")
@@ -77,7 +150,6 @@ source("./02-Scripts/03-Visualization/generate_Table_Summaries.R")
 ```{r}
 source("./02-Scripts/03-Visualization/generate_Flextable_Summaries.R")
 ```
-
 
 
 ```{r}
@@ -113,441 +185,15 @@ source("./02-Scripts/03-Visualization/generate_Figures_Cluster_Composites.R")
 
 
 
-## Data Processing / Initial Cleaning
 
-### Influenza-like Illness
 
-ILI data from FluView and Florida Department of Public Health were processed using following script:
 
-```{r}
-source("./02-Scripts/01-Data-Wrangling/process_Data_ILI.R")
-```
 
 
-Data were stored in a dataframe with each row corresponding to a specific location (state) during a specific week (epi week and date) with the reported counts of ILI and total patients for that location during that week. 
 
-Data were originally split for New York City and New York; I summed those to a single location. Also, data from FluView are missing Florida data completely, but LD was able to obtain data from the Florida Department of Public Health. The data greatly overlap, but the Florida data seems to be missing some of the earliest and latest data (effectively trimming the dataset from both timepoints ends). 
 
 
 
 
-
-
-
-
-
-
-
-### Population Data
-
-Next, we process some population estimates from the census. This is a simple script to extract a tidy df from a table in an excel spreadsheet: 
-
-```{r}
-source("./02-Scripts/01-Data-Wrangling/process_Data_Population.R", echo = T)
-```
-
-
-
-### Mobility Data
-
-Worker commuting flows from the American Community Survey for both 2011-2015 and 2016-2020 are downloaded as excel spreadsheets, though not in a tidy data format (e.g., there is extra fluff at the top and bottom of the excel tables). The ACS data essentially contain four main variables: a location of residence, a location of work, a point estimate of the number of workers commuting between the two locations, and an estimate of uncertainty (i.e., margin of error) for the point estimate. These data are aggregated to the state level to align with the ILI data. In aggregating the data to the state level, the measure of uncertainty is lost; is there a simple way to account for each margin of error in aggregate data? For now, we will focus on the locations and the point estimate and potentially return to the uncertainty later for sensitivity analyses.   
-  
-The process script is simple enough as it just loads the data, categorizes the type of commuter flow (intracounty, intrastate, interstate, international), aggregates totals to the state level, combines the data from both time ranges, and then saves an .rds file. Additionally, the data are expanded to have entries for all possible combinations of locations; this allows me to note the "unobserved" flows.  
-
-The script is sourced using the following code:
-
-```{r}
-source("./02-Scripts/01-Data-Wrangling/process_Data_ACS.R", echo = T)
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Data Engineering
-
-### ILI 
-
-First, we will need to find the seasons for which we have complete data. Then for each season and each location, we need to sum the counts for cumulative season totals, and subsequently use them to calculate a proportion of cumulative season ILI totals observed in a given week. 
-
-These proportions are used to calculate epidemic intensity, which is a slight modification of Shannon entropy across the weeks of an epidemic season. While Shannon entropy is maximized with balance across the categorical variable, i.e., week, epidemic intensity is inverted so that larger values correspond to more "intense" epidemics that are focused in a smaller time frame (larger peaks). Additionally, epidemic intensity is rescaled so that global minimum is zero and global maximum is one (global meaning across all seasons and regions in the dataset). 
-
-Each new season begins in epidemiological week 40 (~October). ILI data for the Mariana Islands and Virgin Islands are dropped here as the former is missing all ILI data and neither are in the mobility data. For the weeks with zero counts of ILI, the individual week's epidemic intensity unit / entropy unit (i.e., p*log(p)) is indeterminate (log(0)) and replaced with a zero value. 
-
-```{r}
-source("./02-Scripts/01-Data-Wrangling/process_Data_ILI_Curve_Proportions.R", echo=TRUE)
-```
-
-In examining data missingness, I noted that the data values for the "year" are incorrect for week starts at end of December; for example, the year for the week start of 30 December 2012 is entered as 2013. Perhaps, this indicates the first epidemiological year similar to epiweeks? This was impacting data merging, so it was recomputed to reflect calendar year of the week start date. This year variable should not be needed for downstream analyses, though, but it was used for setting up data merges and examining implicitly missing data. 
-
-Data are missing for Florida 2010-11 season completely, Puerto Rico 2010-11, 2011-12 seasons completely and nearly completely for 2012-13 season. The dataset is truncated at end of May for the 2020-21 season for all locations; likely artifact of download time. So, we will include data spanning from 2011-12 season to 2019-20 season, which matches the commuting data. Tentatively, PR will be included, but I will need to consider impact on analyses. 
-
-Quick exploration of the distributions of the proportion of cumulative ILI (p) for each week for each location and what I am calling an epidemic intensity unit (ei.unit) (p*log(p)) indicates the intrinsic bounds at zero for both and at one for the proportions. So, in downstream analyses it may be preferable to use the ei unit over the proportion. Taking the absolute value of the ei unit flips the direction about zero so that values are non-negative and have a similar directional interpretation to the aggregate epidemic intensity; that is, larger values correspond to more extreme / imbalanced values (???). But, I am unsure of this being the best way for sake of interpretation. It may be a little wacky to treat the small and large values similarly, and maybe the proportions are preferable. 
-
-
-### Population
-
-The population estimates data roughly correspond to the population of a location at the midpoint (1 July) of the given year. This does not directly match up to the ILI data that have been transformed relative to seasonal totals where the season is set to begin at epiweek 40 of one year and ends at epiweek 39 of the following year. Note that this is more of a yearly designation rather than a true influenza season; a technical flu season may exclude summer months, May-ish through September-ish.  
-  
-To better align the the population estimate for a location at the midpoint of a given year to a specific influenza season, it may be useful to calculate simple averages between sequential years. For example, if I take the 2011 population estimate (July 1) and average it with the 2012 population estimate (July 1), then this may better correspond to the population size in December 2011 / January 2012, closer to the timing of the peaks of epidemics. 
-
-The following script does that:
-
-```{r}
-source("./02-Scripts/01-Data-Wrangling/process_Data_Population_Align_Season.R", echo=TRUE)
-```
-
-
-
-
-### Commuting
-
-The commuting data contains information about the commuter flow volume or flux between two locations. In this way, it it really data on the connectedness / adjacency of location pairs, a network. In this format, it is not easily combined or aligned with the ILI data. Sure there may be some network analyses or compartmental modeling analyses that we could perform to use the data in its original format, but, here, I only want to do some simple analyses relating the ILI epidemic intensity. A rudimentary approach could be to include all origins and destinations and their flows as separate variables or features, e.g., number of incoming commuters from Georgia. However, this may present a few problems: (1) there will be many implicit "zeros" where location pairs have no commuters; (2) there will be many many variables (52 incoming + 52 outgoing?); (3) this would not allow for a more "generalized" interpretation as all features are specific to single locations. So, another approach is desirable. The simplest way that I can think to initially approach this analysis is to aggregate the commuter flows in three ways: (1) internal commutes where origins and destinations are the same; (2) all incoming / inflow commuters for a specific destination location; (3) all outgoing / outflow commuters for a specific origin location. In this way, we will have features corresponding to local population mixing (internal), potential importations (incoming), and potential "foreign" exposures (outgoing). This is still rather rudimentary, but it will work for this preliminary analysis.  
-  
-One last thing to consider is the scale of the data. As I am hoping to analyze this data alongside the population size data, the counts of commuter volume may be too correlated with the population size; that is, large counts of population size will correspond to large numbers of commuters. To remove this relationship, I need to account for the population sizes. Another simple approach may be to compute the proportions of commuters for each category. Though, this may force us to drop one of the three categories. (idk how to best describe this loss of a degree of freedom, linear combination; if they're not internal or outgoing, then they must be incoming?) So, another simple approach could be to calculate the proportions of commuters that are incoming (foreign, bad word choice but it works) or outgoing (expats, bad word choice but it works). Then, I could treat the internal commuters a little differently. This is a little challenging to decide on. My initial thoughts were to just to calculate the proportion of the total population that is an internal commuter. Part of me wants to consider the number of counties as well, though. 
-
-I went back to the original processing script where the data were aggregated to the state level and created a variable categorizing the flow type as either intracounty, intrastate (but not intracounty), interstate, and international. With this new level of aggregation, I can now calculate the proportions of workers in a focal resident location who are (1) outgoing (expats), (2) incoming (foreign), and (3) commuting within the state between counties. I realized that it may be preferable to exclude the workers who work in the same county as they reside and having an additional category would allow me to use the simple proportions. Though, this may introduce a bias according to the number of counties and their relative size (Eastern US has more and smaller counties than Western US). I'm just going to rock with this as is for now and think more on how to control later (maybe somehow take the distance of the flow into consideration).
-  
-The following script aggregates the commuting data:  
-
-```{r}
-source("./02-Scripts/01-Data-Wrangling/process_Data_Population_Align_Season.R", echo=TRUE)
-```
-
-
-
-Maybe in the future, I can bridge the gap between the two aforementioned approaches, such as with features corresponding to the specific flows within and among different regions. 
-
-
-## Finalize Dataset
-
-The following script merges the epidemic intensity dataset, the population dataset, and the commuting dataset. Also, all three separate and the newly merged dataset are packaged (saved) together. 
-
-```{r}
-source("./02-Scripts/01-Data-Wrangling/process_Data_Final_Dataset.R", echo=TRUE)
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Project Overview
-
-## Document Overview
-
-
-
-# Objective
-
-
-* To compare clustering patterns of ILI to those of COVID-19
-
-
-
-# Approach
-
-## Data Processing / Initial Cleaning
-
-### Incidence Data
-
-#### Influenza-like Illness
-
-ILI data from FluView and Florida Department of Public Health were processed using following script:
-
-```{r}
-source("./02-Scripts/01-Data-Wrangling/process_Data_ILI.R")
-```
-
-
-Data were stored in a dataframe with each row corresponding to a specific location (state) during a specific week (epi week and date) with the reported counts of ILI and total patients for that location during that week. 
-
-Data were originally split for New York City and New York; I summed those to a single location. Also, data from FluView are missing Florida data completely, but LD was able to obtain data from the Florida Department of Public Health. The data greatly overlap, but the Florida data seems to be missing some of the earliest and latest data (effectively trimming the dataset from both timepoints ends). 
-
-
-
-
-#### COVID-19
-
-COVID-19 case data was downloaded from [CDC](https://data.cdc.gov/Case-Surveillance/United-States-COVID-19-Cases-and-Deaths-by-State-o/9mfq-cb36) and processed similarly to ILI. The exception being that the incident case counts needed some adjustment as several were negative; presumably, this is an artifact of the calculation of incidence from cumulative case counts (e.g., today's incident cases = today's cumulative - yesterday's cumulative) which may be adjusted post-hoc following case confirmations. So, the dates with negative case counts for `new_cases` were simply imputed: negative values were forced missing, missing values were interpolated using values at dates +- 1 (i.e., today's new cases = (yesterdays+tomorrows)/2), if that is not possible due to consecutive missings (i.e., negatives) then the values are set at zero. Post-processing and analysis of this type of data could be useful to look into later. 
-
-```{r}
-source("./02-Scripts/01-Data-Wrangling/process_Data_COVID.R")
-```
-
-
-
-
-
-
-
-### Spatial Data
-
-Next, we process some spatial data: shapefiles for US counties and states, coordinates for population centers for counties and states, and a relational / lookup table for US administrative regions for the census and Health and Human Services (HHS). 
-
-```{r}
-source("./02-Scripts/01-Data-Wrangling/process_Data_Spatial.R", echo = T)
-```
-
-
-
-### Mobility Data
-
-Worker commuting flows from the American Community Survey is downloaded as an excel spreadsheet, though not in a tidy data format (e.g., there is extra fluff at the top and bottom of the excel table). For some reason, there were problems reading in the file as downloaded even when using skip or range arguments. So, we just manually deleted the extra fluff and saved as a separate file. The process script is simple enough as it just loads the data, converts some of the variable types to character or factor or numeric, and then saves an .rds file. The script is sourced using the following code:
-
-```{r}
-source("./02-Scripts/01-Data-Wrangling/process_Data_ACS.R", echo = T)
-```
-
-The ACS data essentially contain four main variables: a location of residence (at the scale of county), a location of work, a point estimate of the number of workers commuting between the two locations, and an estimate of uncertainty (i.e., margin of error) for the point estimate. For now, we will focus on the locations and the point estimate and return to the uncertainty later for sensitivity analyses. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Data Engineering
-
-### Incidence
-
-#### ILI 
-
-First, we will need to find the seasons for which we have complete data. Then for each season and each location, we need to sum the counts, and subsequently use them to calculate a proportion similar to epidemic intensity calculations or shannon entropy across the weeks of an epidemic season. 
-
-```{r}
-source("./02-Scripts/01-Data-Wrangling/process_Data_ILI_Curve_Proportions.R", echo=TRUE)
-```
-
-#### COVID-19
-
-No further cleaning / transformation needed.
-
-
-### Spatial Data
-
-No further cleaning / transformation needed.
-
-
-### Mobility Data
-
-#### Commuting
-
-Just got to use the igraph package to set up the R object from the origin-destination format after summing to the state level. 
-
-
-```{r}
-source("./02-Scripts/01-Data-Wrangling/process_Data_ACS_Network.R", echo = TRUE)
-```
-
-##### Gravity Approximation
-
-The commuting data were used to fit a gravity model to the data (a common approximation used in simulation modeling, in lieu of commuting data). Log linear models were fit to the data similar to Viboud et al (2006). That is, I estimated gravity as
-
-$$log(Gravity) = \beta_0 + \beta_1log(N_{origin}) + \beta_2log(N_{destination}) + \beta_3log(distance_{origin-destination}),$$
-
-where $\beta_0$ represents the proportionality constant, $\beta_{1,2}$ are the mass exponents for the origin and destination population sizes, respectively, and $\beta_3$ is the distance exponent. Additionally, an indicator variable for a distance threshold was included as an interaction term with all other terms to estimate the parameters separately for shorter and longer distances, as distinguished by the distance threshold. The distance threshold was estimated to minimize the sum of squared errors from the model fits, tangentially to the other parameters. The following script estimates the gravity and creates a network to represent it: 
-
-```{r}
-source("./02-Scripts/01-Data-Wrangling/process_Data_ACS-Gravity_Network.R")
-```
-
-
-##### Radiation Model
-
-The formulation for the radiation model of human mobility as given by Simini et al (2012) was used to create another network. This formulation is non-parameteric and only uses populations sizes and distances in its approximation of commuter volume. 
-
-The following script estimates the commuter volume using the radiation model and generates a network object:
-
-```{r}
-source("./02-Scripts/01-Data-Wrangling/process_Data_ACS-Radiation_Network.R")
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Data Management & Analysis Setup
-
-
-### Writing SaTScan Data Input Files
-
-Next, we need to write the files for input in SaTScan. Basically a coordinates file used in spatial scan statistics (location-label lat lon) (going to revisit this as you can supply a network with pairwise distances, inverted commuter flow?); a "case" file, here the proportions of cumulative incidence (square root transformed) OR ("2" suffix) the sub-component of shannon entropy (sqrt(p*log(p)); also square root transformed as indicated). The method assumes a normally distributed continuous variable. 
-
-The proportions' distribution is not truly normal (theoretically or practically), but a square root transformation does seem to help as inspected from a histogram. I looked into some spatial scan statistics for beta distribution but they are relatively new, not available in current package. Normal approximation should suffice for our purposes. Additionally, using the work of Dalziel et al and their formulation of epidemic intensity based off of shannon entropy, I calculated each weeks individual contribution to the shannon entropy; that is, 
-
-$$entropy~ unit_{i,j} = (-1*Pr(ILI_{i,j}/ILI_{total, i,j})*log(Pr(ILI_{i,j}/ILI_{total, i,j}))).$$
-
-
-The programs are run using square root transforms of the entropy units. 
-
-In addition to a "normally" distributed "case" characteristic (proportions cumulative ILI or entropy unit), each value needs a weight assigned to it so that the underlying logic/rationale / variance estimation understands that the given value is an "average" for the entire region (or data sample). I found in the help documentation for satscan that a population can be used instead of a weight. So, at first I thought to use the analog for proportion of cumulative total patients (the weekly denominator for ILI data, similarly processed as the proportions of cumulative ILI incidence). However, I'm also think that it may be better to use the cumulative total patients count for a single location season for each week in that season. But im torn. Variance in proportion of cumulative ILI may depend on ... proportion of observed patients at that location during that week. I don't think it should be the raw counts for either ILI or total patients, the whole proportion calculation is a work around to known bias. So, we'll just go with proportion cumulative total patients for now. 
-
-
-
-Case file has (location-label week value value-weight). So, an individual case file is written for each week; the coordinates file is set once. The text files are written in the following scripts:
-
-```{r}
-# sqrt(ILI proportion of cumulative incidence per week per state)
-# satscan normal dist
-# ./SaTScan/input output
-source("./02-Scripts/01-Data-Wrangling/prep_Files_SaTScan_ILI_Spatial.R")
-# sqrt(epidemic intensity unit)
-# # ei unit = (((p * log(p))*-1)^(-1) - argmin)/argmax ~~[0,1]
-# ./SaTScan/input2 output2
-source("./02-Scripts/01-Data-Wrangling/prep_Files_SaTScan_ILI_Spatial2.R")
-source("./02-Scripts/01-Data-Wrangling/prep_Files_SaTScan_ILI_ACS.R") # network instead of spatial coordinates
-source("./02-Scripts/01-Data-Wrangling/prep_Files_SaTScan_ILI_Gravity.R") # network instead of spatial coordinates
-source("./02-Scripts/01-Data-Wrangling/prep_Files_SaTScan_ILI_Radiation.R") # network instead of spatial coordinates
-
-# covid case counts
-source("./02-Scripts/01-Data-Wrangling/prep_Files_SaTScan_COVID_Spatial.R")
-source("./02-Scripts/01-Data-Wrangling/prep_Files_SaTScan_COVID_ACS.R")
-source("./02-Scripts/01-Data-Wrangling/prep_Files_SaTScan_COVID_Gravity.R")
-source("./02-Scripts/01-Data-Wrangling/prep_Files_SaTScan_COVID_Radiation.R")
-
-```
-
-Note: these are duplicated scripts that have a single slight difference in the variables used when writing the case files for satscan, either sqrt proportion or (2) sqrt entropy unit. The next couple steps will also have duplicated scripts for each of these.  
-
-
-#### SaTScan Parameters
-
-Intermediate step, manually create a parameters file for satscan to read. I think `satscan` package helps with that but I just used gui to save file after manually selecting options. 
-
-
-
-
-
-
-
-
-
-
-
-## Analysis - SaTScan 
-
-Next, I wrote scripts to send commands to the command prompt to run the satscan batch mode (executable file? idk how to say). The only option needed there is a parameters file indicating the input files (coordinates, cases, ...) and the model options. 
-
-The script loops over list of dates and replaces the input file string in the parameters file with each run. So, the program does a purely spatial clustering analysis assuming a continuously distributed outcome variable (the proportions of cumulative ILI observed at a given location at a given week; or (2) the shannon entropy component). 
-
-Here are the scripts:
-
-```{r}
-# warning they take about 50 minutes to complete, each
-all.start <- Sys.time()
-all.start
-
-# sqrt proportion cumulative ILI
-source("./02-Scripts/02-Helper-Functions/run_Program_SaTScan_ILI_Spatial.R")
-# sqrt entropy unit
-source("./02-Scripts/02-Helper-Functions/run_Program_SaTScan_ILI_Spatial2.R")
-source("./02-Scripts/02-Helper-Functions/run_Program_SaTScan_ILI_ACS.R") # network
-source("./02-Scripts/02-Helper-Functions/run_Program_SaTScan_ILI_Gravity.R")
-source("./02-Scripts/02-Helper-Functions/run_Program_SaTScan_ILI_Radiation.R")
-
-# covid
-source("./02-Scripts/02-Helper-Functions/run_Program_SaTScan_COVID_Spatial.R")
-source("./02-Scripts/02-Helper-Functions/run_Program_SaTScan_COVID_ACS.R")
-source("./02-Scripts/02-Helper-Functions/run_Program_SaTScan_COVID_Gravity.R")
-source("./02-Scripts/02-Helper-Functions/run_Program_SaTScan_COVID_Radiation.R")
-all.end <- Sys.time()
-all.end
-```
-
-Each SaTScan run generates an output text file (can do shapefiles and maybe R package readable files too, but who likes easy integration?). The text files contain information about each detected cluster (if any as I had to debug). 
-
-
-
-
-
-## SaTScan Results Processing
-
-The following scripts read the output text files and parse the data for each cluster into a dataframe:
-
-```{r}
-# memory greedy / inefficient coding
-source("./02-Scripts/01-Data-Wrangling/process_Results_SaTScan_ILI_Spatial.R")
-source("./02-Scripts/01-Data-Wrangling/process_Results_SaTScan_ILI_Spatial2.R")
-source("./02-Scripts/01-Data-Wrangling/process_Results_SaTScan_ILI_ACS.R") # network
-source("./02-Scripts/01-Data-Wrangling/process_Results_SaTScan_ILI_Gravity.R")
-source("./02-Scripts/01-Data-Wrangling/process_Results_SaTScan_ILI_Radiation.R")
-
-# covid
-source("./02-Scripts/01-Data-Wrangling/process_Results_SaTScan_COVID_Spatial.R")
-source("./02-Scripts/01-Data-Wrangling/process_Results_SaTScan_COVID_ACS.R")
-source("./02-Scripts/01-Data-Wrangling/process_Results_SaTScan_COVID_Gravity.R")
-source("./02-Scripts/01-Data-Wrangling/process_Results_SaTScan_COVID_Radiation.R")
-```
-
-
-
-
-
-
-
-
-
-Then, these scripts further process the satscan results to transform the data into an adjacency matrix and then a network object:
-
-```{r}
-# ili
-source("./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_ILI_Spatial_Network.R")
-source("./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_ILI_Spatial2_Network.R")
-source("./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_ILI_ACS_Network.R")
-source("./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_ILI_Gravity_Network.R")
-source("./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_ILI_Radiation_Network.R")
-
-source("./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_ILI_Spatialseasonal_Network.R")
-source("./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_ILI_Spatial2seasonal_Network.R")
-source("./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_ILI_ACSseasonal_Network.R")
-source("./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_ILI_Gravityseasonal_Network.R")
-source("./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_ILI_Radiationseasonal_Network.R")
-
-
-# covid
-source("./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_COVID_Spatial_Network.R")
-source("./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_COVID_ACS_Network.R")
-source("./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_COVID_Gravity_Network.R")
-source("./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_COVID_Radiation_Network.R")
-```
-
-These will be transferred to another repo for a secondary analysis. 
 
 

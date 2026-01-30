@@ -1,14 +1,16 @@
 # satscan run
 
 
-## load data
+## Load Data
 load("./01-Data/02-Analytic-Data/ili.rds")
 
 
 
-## packages
+## Packages
 library(readr)
 
+
+## Helper Functions
 
 
 ## remove missings
@@ -89,8 +91,9 @@ end-start
 
 
 
+## Save
 
 
-## clean environment
+## Clean Environment
 rm(list=ls())
 gc()

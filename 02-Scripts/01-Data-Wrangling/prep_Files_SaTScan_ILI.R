@@ -1,13 +1,15 @@
 # script to write the ili data to text files for satscan
 
 
-## load data
+## Load data
 load("./01-Data/02-Analytic-Data/ili.rds")
 
 
 
-## packages
+## Packages
 
+
+## Helper Functions
 
 
 ## remove missings
@@ -41,9 +43,11 @@ for(i in 1:length(unique(ili$week_start))){
 
 
 
+## Save
 
 
-## clean environment
+
+## Clean Environment
 rm(list = ls())
 gc()
 

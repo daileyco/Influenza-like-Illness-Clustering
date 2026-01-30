@@ -1,14 +1,17 @@
 # script to format summary tables and save to word docs
 
 
-## load data
+## Load Data
 load("./03-Output/01-Tables/table_summary_clusters.rds")
 
 
-## packages
+## Packages
 library(dplyr)
 library(flextable)
 library(officer)
+
+
+## Helper Functions
 
 
 
@@ -311,12 +314,12 @@ for(i in 1:length(sft.list)){
 
 
 
-## save
+## Save
 save(sft.list, 
      file = "./03-Output/01-Tables/flextable_summary_clusters.rds")
 
 
-## clean environment
+## Clean Environment
 rm(list=ls())
 gc()
 

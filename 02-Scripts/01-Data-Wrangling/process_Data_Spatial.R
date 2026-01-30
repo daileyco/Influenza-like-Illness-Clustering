@@ -1,18 +1,21 @@
 # Spatial Data Processing
 
+## Load Data
+
+## Packages
 library(sf)
 library(dplyr)
 
+## Helper Functions
 
 
 
+
+## prep directory
 
 if(!dir.exists("./01-Data/00-Raw-Data/Spatial")){
   dir.create("./01-Data/00-Raw-Data/Spatial")
 }
-
-
-
 
 
 # ## shapefiles from census
@@ -52,6 +55,8 @@ pop.centers.state2020 <- st_as_sf(pop.centers.state2020, coords = c("LONGITUDE",
 
 
 
+## Save
+
 save(us.shape.state, 
      pop.centers.state2010, 
      pop.centers.state2020,  
@@ -60,6 +65,6 @@ save(us.shape.state,
 
 
 
-
+## Clean Environment
 rm(list = ls())
 gc()

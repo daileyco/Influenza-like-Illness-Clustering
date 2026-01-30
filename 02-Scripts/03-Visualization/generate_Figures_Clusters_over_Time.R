@@ -1,14 +1,14 @@
 # Script to create figure showing the number of clusters detected over time 
 
-## load data
+## Load data
 load("./01-Data/02-Analytic-Data/satscan_clusters.rds")
 
-## packages
+## Packages
 library(dplyr)
 library(lubridate)
 library(RColorBrewer)
 
-
+## Helper Functions
 
 
 ## calculate epi week and distance indicator
@@ -344,10 +344,10 @@ dev.off()
 
 
 
+## Save
 
 
-
-## clean environment
+## Clean Environment
 rm(list = ls())
 gc()
 

@@ -1,6 +1,19 @@
 # ACS Data Processing
 
+## Load Data
+
+
+## Packages
 library(readxl)
+library(dplyr)
+library(igraph)
+
+
+## Helper Functions
+
+
+## read data in
+
 
 #table for 2011 - 2015
 acs1115 <- read_xlsx(path = "./01-Data/00-Raw-Data/Commuting/table1-11-15.xlsx", 
@@ -37,7 +50,6 @@ acs1620 <- acs1620[-c({nrow(acs1620)-3}:nrow(acs1620)),]
 ##intrastate (but intercounty), 
 ##or intracounty
 
-library(dplyr)
 
 acs1115 <- acs1115 %>%
   mutate(`State FIPS Work` = substr(`State FIPS Work`, 2,3)) %>%
@@ -158,7 +170,6 @@ acs1620 <- acs1620.state.full %>%
 # combn(unique(acs1115$`State Residence`), 2) %>% t() %>% matrix(ncol = 2) %>% as.data.frame()
 
 
-library(igraph)
 
 
 acs1115 <- graph_from_data_frame(acs1115, 
@@ -181,13 +192,13 @@ acs1620 <- graph_from_data_frame(acs1620,
 
 
 
-
+## Save
 
 save(acs1115, 
      acs1620, 
      file = "./01-Data/01-Processed-Data/acs.rdata")
 
 
-
+## Clean Environment
 rm(list = ls())
 gc()

@@ -1,4 +1,54 @@
-# Project Skeleton
+# Influenza-like Illness Clustering Repo
+
+Subnational regional delineations of the US are plentiful, but none are directly related to potential spread patterns for seasonal influenza.
+Here, we investigated state-level clustering patterns in the incidence of influenza-like illness and worker commuting flows.
+
+This repo relates to a part of Chapter 3 in [my PhD dissertation](https://esploro.libs.uga.edu/esploro/outputs/9949694128302959).
+
+Feel free to reach out to me (daileyco@gmail.com) or my PhD advisor, Justin Bahl (Justin.Bahl@uga.edu), with any questions. 
+
+## Repo Contents
+
+This repo contains scripts that: 
+
+- read and manage input data, 
+- run the SaTScan program to identify state-level clustering patterns in ILI and commuting data,
+- and generate various tables and figures showing important patterns in the data or analytical results.
+
+
+The scripts in this repo (and others of my creation) are highly modular. The scripts are designed to be run in a particular sequence that ensures the output(s) saved from upstream scripts are available for input(s) in downstream scripts. (See the bottom of this readme for a generic description of repo contents/structure.)
+
+There are two files that outline the order of scripts and give details on their individual purposes. 
+- "00-Information/script_census-[compile date].xlsx"
+- "04-Report/01-Notebook/reproducibility_notebook.rmd"
+
+The script census excel file gives details on scripts in this repo, including its purpose, inputs, package dependencies, and outputs. The creation of this excel file was automated (".02-Scripts/Script_Census.R"), so there are likely some errors in formatting or omitted information. Each script itself has some comments explaining the intent for sections of the code. 
+The reproducibility notebook is a combination of (1) a narrative explaining analysis steps and (2) a master script which sources/runs all of the main analysis scripts.
+
+A few of the columns from the script census are shown in the table below. (created with knitr::kable(census[,c(2,1,3)]))
+
+
+|Script Location   |Script Name                           |Purpose                                                                               |
+|:-----------------|:-------------------------------------|:-------------------------------------------------------------------------------------|
+|01-Data-Wrangling |process_Data_ILI.R                    |ILI Data Processing                                                                   |
+|01-Data-Wrangling |process_Data_ILI_Rates_of_Change.R    |ili processing, calculation of weekly proportions of season cumulative totals         |
+|01-Data-Wrangling |process_Data_ACS.R                    |ACS Data Processing                                                                   |
+|01-Data-Wrangling |process_Data_Spatial.R                |Spatial Data Processing                                                               |
+|01-Data-Wrangling |prep_Files_SaTScan_ILI.R              |script to write the ili data to text files for satscan                                |
+|01-Data-Wrangling |prep_Files_SaTScan_Adjacency.R        |script to write the adjacency files used by satscan                                   |
+|04-Analysis       |run_Program_SaTScan.R                 |satscan run                                                                           |
+|01-Data-Wrangling |process_Results_SaTScan.R             |processing satscan results                                                            |
+|03-Visualization  |generate_Table_Summaries.R            |Script to create summary table                                                        |
+|03-Visualization  |generate_Flextable_Summaries.R        |script to format summary tables and save to word docs                                 |
+|03-Visualization  |generate_Figures_Clusters_over_Time.R |Script to create figure showing the number of clusters detected over time             |
+|03-Visualization  |generate_Figures_Cluster_Composites.R |script to create a map figure showing overlayed clusters aggregated by season quarter |
+
+
+
+
+
+# Project Skeleton (my generic repo template)
+ 
 
 A basic repo template (directory structure) to be use as starting point for new projects.
 

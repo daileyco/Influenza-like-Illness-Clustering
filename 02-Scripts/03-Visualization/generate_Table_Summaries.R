@@ -1,16 +1,16 @@
 # Script to create summary table
 
-## load data
+## Load Data
 load("./01-Data/02-Analytic-Data/satscan_clusters.rds")
 
-## packages
+## Packages
 library(dplyr)
 library(tidyr)
 library(lubridate)
 
 
 
-## helper functions
+## Helper Functions
 source("./02-Scripts/02-Helper-Functions/tabulator.R")
 
 
@@ -87,7 +87,7 @@ table.summary.clusters <- clusters.summary
 
 
 
-## save
+## Save
 
 save(table.summary.clusters, 
      file = "./03-Output/01-Tables/table_summary_clusters.rds")
@@ -95,7 +95,7 @@ save(table.summary.clusters,
 
 
 
-## clean environment
+## Clean Environment
 rm(list = ls())
 gc()
 

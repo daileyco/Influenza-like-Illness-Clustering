@@ -2,20 +2,25 @@
 
 
 
-## load data
+## Load Data
 
 load("./01-Data/01-Processed-Data/spatial.rdata")
 load("./01-Data/02-Analytic-Data/ili.rds")
 load("./01-Data/02-Analytic-Data/satscan_clusters.rds")
 
 
-## packages
+## Packages
 library(dplyr)
 library(tidyr)
 library(sf)
 library(igraph)
 library(viridis)
 library(lubridate)
+
+
+## Helper Functions
+
+
 
 
 ## clean
@@ -141,9 +146,9 @@ dev.off()
 
 
 
+## Save
 
-
-## clean environment
+## Clean Environment
 rm(list=ls())
 gc()
 

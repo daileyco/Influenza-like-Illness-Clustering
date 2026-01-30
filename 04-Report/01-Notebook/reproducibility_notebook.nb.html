@@ -1511,7 +1511,7 @@ window.initializeCodeFolding = function(show) {
     $(this).detach().appendTo(div);
 
     // add a show code button right above
-    var showCodeText = $('<span>' + (showThis ? 'Hide' : 'Code') + '</span>');
+    var showCodeText = $('<span>' + (showThis ? 'Hide' : 'Show') + '</span>');
     var showCodeButton = $('<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm code-folding-btn pull-right float-right"></button>');
     showCodeButton.append(showCodeText);
     showCodeButton
@@ -1537,7 +1537,7 @@ window.initializeCodeFolding = function(show) {
     //   * Change text
     //   * add a class for intermediate states styling
     div.on('hide.bs.collapse', function () {
-      showCodeText.text('Code');
+      showCodeText.text('Show');
       showCodeButton.addClass('btn-collapsing');
     });
     div.on('hidden.bs.collapse', function () {
@@ -1789,103 +1789,12 @@ influenza-like illness in the US from 2011 to 2020</li>
 </div>
 <div id="approach" class="section level1">
 <h1>Approach</h1>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9JTEkuUlwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_ILI.R&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9JTElfUmF0ZXNfb2ZfQ2hhbmdlLlJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_ILI_Rates_of_Change.R&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3ByZXBfRmlsZXNfU2FUU2Nhbl9JTEkuUlwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;./02-Scripts/01-Data-Wrangling/prep_Files_SaTScan_ILI.R&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9BQ1MuUlwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_ACS.R&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9TcGF0aWFsLlJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_Spatial.R&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3ByZXBfRmlsZXNfU2FUU2Nhbl9BZGphY2VuY3kuUlwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;./02-Scripts/01-Data-Wrangling/prep_Files_SaTScan_Adjacency.R&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzA0LUFuYWx5c2lzL3J1bl9Qcm9ncmFtX1NhVFNjYW4uUlwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;./02-Scripts/04-Analysis/run_Program_SaTScan.R&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfUmVzdWx0c19TYVRTY2FuLlJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;./02-Scripts/01-Data-Wrangling/process_Results_SaTScan.R&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAzLVZpc3VhbGl6YXRpb24vZ2VuZXJhdGVfVGFibGVfU3VtbWFyaWVzLlJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;./02-Scripts/03-Visualization/generate_Table_Summaries.R&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAzLVZpc3VhbGl6YXRpb24vZ2VuZXJhdGVfRmxleHRhYmxlX1N1bW1hcmllcy5SXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;./02-Scripts/03-Visualization/generate_Flextable_Summaries.R&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAzLVZpc3VhbGl6YXRpb24vZ2VuZXJhdGVfRmlndXJlc19DbHVzdGVyc19vdmVyX1RpbWUuUlwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;./02-Scripts/03-Visualization/generate_Figures_Clusters_over_Time.R&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAzLVZpc3VhbGl6YXRpb24vZ2VuZXJhdGVfRmlndXJlc19DbHVzdGVyX0NvbXBvc2l0ZXMuUlwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;./02-Scripts/03-Visualization/generate_Figures_Cluster_Composites.R&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
 <div id="data-processing-initial-cleaning" class="section level2">
 <h2>Data Processing / Initial Cleaning</h2>
 <div id="influenza-like-illness" class="section level3">
 <h3>Influenza-like Illness</h3>
 <p>ILI data from FluView and Florida Department of Public Health were
 processed using following script:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9JTEkuUlwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_ILI.R&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
 <p>Data were stored in a dataframe with each row corresponding to a
 specific location (state) during a specific week (epi week and date)
 with the reported counts of ILI and total patients for that location
@@ -1896,408 +1805,109 @@ data completely, but LD was able to obtain data from the Florida
 Department of Public Health. The data greatly overlap, but the Florida
 data seems to be missing some of the earliest and latest data
 (effectively trimming the dataset from both timepoints ends).</p>
-</div>
-<div id="population-data" class="section level3">
-<h3>Population Data</h3>
-<p>Next, we process some population estimates from the census. This is a
-simple script to extract a tidy df from a table in an excel
-spreadsheet:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9Qb3B1bGF0aW9uLlJcIiwgZWNobyA9IFQpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_Population.R&quot;, echo = T)</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVZR0JnY2x4dWMyOTFjbU5sS0Z4Y0xpOHdNaTFUWTNKcGNIUnpMekF4TFVSaGRHRXRWM0poYm1kc2FXNW5MM0J5YjJObGMzTmZSR0YwWVY5SlRFa3VVbHhjS1Z4dVlHQmdYRzVnWUdBaWZRPT0gLS0+XG5cbmBgYHJcbmBgYHJcbnNvdXJjZShcXC4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcm9jZXNzX0RhdGFfSUxJLlJcXClcbmBgYFxuYGBgXG5cbjwhLS0gcm5iLXNvdXJjZS1lbmQgLS0+XG4ifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9JTEkuUlxcKVxuYGBgXG5gYGAifQ== -->
+<pre class="r"><code>```r
+source(\./02-Scripts/01-Data-Wrangling/process_Data_ILI.R\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+
+&lt;!-- rnb-output-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVZR0JnY2x4dWMyOTFjbU5sS0Z4Y0xpOHdNaTFUWTNKcGNIUnpMekF4TFVSaGRHRXRWM0poYm1kc2FXNW5MM0J5YjJObGMzTmZSR0YwWVY5SlRFbGZVbUYwWlhOZmIyWmZRMmhoYm1kbExsSmNYQ2xjYm1CZ1lGeHVZR0JnSW4wPSAtLT5cblxuYGBgclxuYGBgclxuc291cmNlKFxcLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9JTElfUmF0ZXNfb2ZfQ2hhbmdlLlJcXClcbmBgYFxuYGBgXG5cbjwhLS0gcm5iLXNvdXJjZS1lbmQgLS0+XG4ifQ== --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9JTElfUmF0ZXNfb2ZfQ2hhbmdlLlJcXClcbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+source(\./02-Scripts/01-Data-Wrangling/process_Data_ILI_Rates_of_Change.R\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+
+&lt;!-- rnb-output-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+
+### Mobility Data
+
+Worker commuting flows from the American Community Survey for both 2011-2015 and 2016-2020 are downloaded as excel spreadsheets, though not in a tidy data format (e.g., there is extra fluff at the top and bottom of the excel tables). The ACS data essentially contain four main variables: a location of residence, a location of work, a point estimate of the number of workers commuting between the two locations, and an estimate of uncertainty (i.e., margin of error) for the point estimate. These data are aggregated to the state level to align with the ILI data. In aggregating the data to the state level, the measure of uncertainty is lost; is there a simple way to account for each margin of error in aggregate data? For now, we will focus on the locations and the point estimate and potentially return to the uncertainty later for sensitivity analyses.   
+  
+The process script is simple enough as it just loads the data, categorizes the type of commuter flow (intracounty, intrastate, interstate, international), aggregates totals to the state level, combines the data from both time ranges, and then saves an .rds file. Additionally, the data are expanded to have entries for all possible combinations of locations; this allows me to note the &quot;unobserved&quot; flows.  
+
+The script is sourced using the following code:
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVZR0JnY2x4dWMyOTFjbU5sS0Z4Y0xpOHdNaTFUWTNKcGNIUnpMekF4TFVSaGRHRXRWM0poYm1kc2FXNW5MM0J5YjJObGMzTmZSR0YwWVY5QlExTXVVbHhjS1Z4dVlHQmdYRzVnWUdBaWZRPT0gLS0+XG5cbmBgYHJcbmBgYHJcbnNvdXJjZShcXC4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcm9jZXNzX0RhdGFfQUNTLlJcXClcbmBgYFxuYGBgXG5cbjwhLS0gcm5iLXNvdXJjZS1lbmQgLS0+XG4ifQ== --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9BQ1MuUlxcKVxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+source(\./02-Scripts/01-Data-Wrangling/process_Data_ACS.R\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+
+&lt;!-- rnb-output-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+### Spatial Data
+
+Next, we process some spatial data: shapefiles for US counties and states, coordinates for population centers for counties and states
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVjMjkxY21ObEtGd2lMaTh3TWkxVFkzSnBjSFJ6THpBeExVUmhkR0V0VjNKaGJtZHNhVzVuTDNCeWIyTmxjM05mUkdGMFlWOVRjR0YwYVdGc0xsSmNJaXdnWldOb2J5QTlJRlFwWEc1Z1lHQWlmUT09IC0tPlxuXG5gYGByXG5zb3VyY2UoXCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19EYXRhX1NwYXRpYWwuUlwiLCBlY2hvID0gVClcbmBgYFxuXG48IS0tIHJuYi1zb3VyY2UtZW5kIC0tPlxuIn0= --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9TcGF0aWFsLlJcIiwgZWNobyA9IFQpXG5gYGAifQ== --&gt;
+
+```r
+source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_Spatial.R&quot;, echo = T)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-</div>
-<div id="mobility-data" class="section level3">
-<h3>Mobility Data</h3>
-<p>Worker commuting flows from the American Community Survey for both
-2011-2015 and 2016-2020 are downloaded as excel spreadsheets, though not
-in a tidy data format (e.g., there is extra fluff at the top and bottom
-of the excel tables). The ACS data essentially contain four main
-variables: a location of residence, a location of work, a point estimate
-of the number of workers commuting between the two locations, and an
-estimate of uncertainty (i.e., margin of error) for the point estimate.
-These data are aggregated to the state level to align with the ILI data.
-In aggregating the data to the state level, the measure of uncertainty
-is lost; is there a simple way to account for each margin of error in
-aggregate data? For now, we will focus on the locations and the point
-estimate and potentially return to the uncertainty later for sensitivity
-analyses.</p>
-<p>The process script is simple enough as it just loads the data,
-categorizes the type of commuter flow (intracounty, intrastate,
-interstate, international), aggregates totals to the state level,
-combines the data from both time ranges, and then saves an .rds file.
-Additionally, the data are expanded to have entries for all possible
-combinations of locations; this allows me to note the “unobserved”
-flows.</p>
-<p>The script is sourced using the following code:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9BQ1MuUlwiLCBlY2hvID0gVClcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_ACS.R&quot;, echo = T)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-</div>
-<div id="data-engineering" class="section level2">
-<h2>Data Engineering</h2>
-<div id="ili" class="section level3">
-<h3>ILI</h3>
-<p>First, we will need to find the seasons for which we have complete
-data. Then for each season and each location, we need to sum the counts
-for cumulative season totals, and subsequently use them to calculate a
-proportion of cumulative season ILI totals observed in a given week.</p>
-<p>These proportions are used to calculate epidemic intensity, which is
-a slight modification of Shannon entropy across the weeks of an epidemic
-season. While Shannon entropy is maximized with balance across the
-categorical variable, i.e., week, epidemic intensity is inverted so that
-larger values correspond to more “intense” epidemics that are focused in
-a smaller time frame (larger peaks). Additionally, epidemic intensity is
-rescaled so that global minimum is zero and global maximum is one
-(global meaning across all seasons and regions in the dataset).</p>
-<p>Each new season begins in epidemiological week 40 (~October). ILI
-data for the Mariana Islands and Virgin Islands are dropped here as the
-former is missing all ILI data and neither are in the mobility data. For
-the weeks with zero counts of ILI, the individual week’s epidemic
-intensity unit / entropy unit (i.e., p*log(p)) is indeterminate (log(0))
-and replaced with a zero value.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9JTElfQ3VydmVfUHJvcG9ydGlvbnMuUlwiLCBlY2hvPVRSVUUpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_ILI_Curve_Proportions.R&quot;, echo=TRUE)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>In examining data missingness, I noted that the data values for the
-“year” are incorrect for week starts at end of December; for example,
-the year for the week start of 30 December 2012 is entered as 2013.
-Perhaps, this indicates the first epidemiological year similar to
-epiweeks? This was impacting data merging, so it was recomputed to
-reflect calendar year of the week start date. This year variable should
-not be needed for downstream analyses, though, but it was used for
-setting up data merges and examining implicitly missing data.</p>
-<p>Data are missing for Florida 2010-11 season completely, Puerto Rico
-2010-11, 2011-12 seasons completely and nearly completely for 2012-13
-season. The dataset is truncated at end of May for the 2020-21 season
-for all locations; likely artifact of download time. So, we will include
-data spanning from 2011-12 season to 2019-20 season, which matches the
-commuting data. Tentatively, PR will be included, but I will need to
-consider impact on analyses.</p>
-<p>Quick exploration of the distributions of the proportion of
-cumulative ILI (p) for each week for each location and what I am calling
-an epidemic intensity unit (ei.unit) (p*log(p)) indicates the intrinsic
-bounds at zero for both and at one for the proportions. So, in
-downstream analyses it may be preferable to use the ei unit over the
-proportion. Taking the absolute value of the ei unit flips the direction
-about zero so that values are non-negative and have a similar
-directional interpretation to the aggregate epidemic intensity; that is,
-larger values correspond to more extreme / imbalanced values (???). But,
-I am unsure of this being the best way for sake of interpretation. It
-may be a little wacky to treat the small and large values similarly, and
-maybe the proportions are preferable.</p>
-</div>
-<div id="population" class="section level3">
-<h3>Population</h3>
-<p>The population estimates data roughly correspond to the population of
-a location at the midpoint (1 July) of the given year. This does not
-directly match up to the ILI data that have been transformed relative to
-seasonal totals where the season is set to begin at epiweek 40 of one
-year and ends at epiweek 39 of the following year. Note that this is
-more of a yearly designation rather than a true influenza season; a
-technical flu season may exclude summer months, May-ish through
-September-ish.</p>
-<p>To better align the the population estimate for a location at the
-midpoint of a given year to a specific influenza season, it may be
-useful to calculate simple averages between sequential years. For
-example, if I take the 2011 population estimate (July 1) and average it
-with the 2012 population estimate (July 1), then this may better
-correspond to the population size in December 2011 / January 2012,
-closer to the timing of the peaks of epidemics.</p>
-<p>The following script does that:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9Qb3B1bGF0aW9uX0FsaWduX1NlYXNvbi5SXCIsIGVjaG89VFJVRSlcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_Population_Align_Season.R&quot;, echo=TRUE)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="commuting" class="section level3">
-<h3>Commuting</h3>
-<p>The commuting data contains information about the commuter flow
-volume or flux between two locations. In this way, it it really data on
-the connectedness / adjacency of location pairs, a network. In this
-format, it is not easily combined or aligned with the ILI data. Sure
-there may be some network analyses or compartmental modeling analyses
-that we could perform to use the data in its original format, but, here,
-I only want to do some simple analyses relating the ILI epidemic
-intensity. A rudimentary approach could be to include all origins and
-destinations and their flows as separate variables or features, e.g.,
-number of incoming commuters from Georgia. However, this may present a
-few problems: (1) there will be many implicit “zeros” where location
-pairs have no commuters; (2) there will be many many variables (52
-incoming + 52 outgoing?); (3) this would not allow for a more
-“generalized” interpretation as all features are specific to single
-locations. So, another approach is desirable. The simplest way that I
-can think to initially approach this analysis is to aggregate the
-commuter flows in three ways: (1) internal commutes where origins and
-destinations are the same; (2) all incoming / inflow commuters for a
-specific destination location; (3) all outgoing / outflow commuters for
-a specific origin location. In this way, we will have features
-corresponding to local population mixing (internal), potential
-importations (incoming), and potential “foreign” exposures (outgoing).
-This is still rather rudimentary, but it will work for this preliminary
-analysis.</p>
-<p>One last thing to consider is the scale of the data. As I am hoping
-to analyze this data alongside the population size data, the counts of
-commuter volume may be too correlated with the population size; that is,
-large counts of population size will correspond to large numbers of
-commuters. To remove this relationship, I need to account for the
-population sizes. Another simple approach may be to compute the
-proportions of commuters for each category. Though, this may force us to
-drop one of the three categories. (idk how to best describe this loss of
-a degree of freedom, linear combination; if they’re not internal or
-outgoing, then they must be incoming?) So, another simple approach could
-be to calculate the proportions of commuters that are incoming (foreign,
-bad word choice but it works) or outgoing (expats, bad word choice but
-it works). Then, I could treat the internal commuters a little
-differently. This is a little challenging to decide on. My initial
-thoughts were to just to calculate the proportion of the total
-population that is an internal commuter. Part of me wants to consider
-the number of counties as well, though.</p>
-<p>I went back to the original processing script where the data were
-aggregated to the state level and created a variable categorizing the
-flow type as either intracounty, intrastate (but not intracounty),
-interstate, and international. With this new level of aggregation, I can
-now calculate the proportions of workers in a focal resident location
-who are (1) outgoing (expats), (2) incoming (foreign), and (3) commuting
-within the state between counties. I realized that it may be preferable
-to exclude the workers who work in the same county as they reside and
-having an additional category would allow me to use the simple
-proportions. Though, this may introduce a bias according to the number
-of counties and their relative size (Eastern US has more and smaller
-counties than Western US). I’m just going to rock with this as is for
-now and think more on how to control later (maybe somehow take the
-distance of the flow into consideration).</p>
-<p>The following script aggregates the commuting data:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9Qb3B1bGF0aW9uX0FsaWduX1NlYXNvbi5SXCIsIGVjaG89VFJVRSlcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_Population_Align_Season.R&quot;, echo=TRUE)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Maybe in the future, I can bridge the gap between the two
-aforementioned approaches, such as with features corresponding to the
-specific flows within and among different regions.</p>
-</div>
-</div>
-<div id="finalize-dataset" class="section level2">
-<h2>Finalize Dataset</h2>
-<p>The following script merges the epidemic intensity dataset, the
-population dataset, and the commuting dataset. Also, all three separate
-and the newly merged dataset are packaged (saved) together.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9GaW5hbF9EYXRhc2V0LlJcIiwgZWNobz1UUlVFKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_Final_Dataset.R&quot;, echo=TRUE)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-</div>
-<div id="project-overview-1" class="section level1">
-<h1>Project Overview</h1>
-<div id="document-overview-1" class="section level2">
-<h2>Document Overview</h2>
-</div>
-</div>
-<div id="objective-1" class="section level1">
-<h1>Objective</h1>
-<ul>
-<li>To compare clustering patterns of ILI to those of COVID-19</li>
-</ul>
-</div>
-<div id="approach-1" class="section level1">
-<h1>Approach</h1>
-<div id="data-processing-initial-cleaning-1" class="section level2">
-<h2>Data Processing / Initial Cleaning</h2>
-<div id="incidence-data" class="section level3">
-<h3>Incidence Data</h3>
-<div id="influenza-like-illness-1" class="section level4">
-<h4>Influenza-like Illness</h4>
-<p>ILI data from FluView and Florida Department of Public Health were
-processed using following script:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9JTEkuUlwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_ILI.R&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Data were stored in a dataframe with each row corresponding to a
-specific location (state) during a specific week (epi week and date)
-with the reported counts of ILI and total patients for that location
-during that week.</p>
-<p>Data were originally split for New York City and New York; I summed
-those to a single location. Also, data from FluView are missing Florida
-data completely, but LD was able to obtain data from the Florida
-Department of Public Health. The data greatly overlap, but the Florida
-data seems to be missing some of the earliest and latest data
-(effectively trimming the dataset from both timepoints ends).</p>
-</div>
-<div id="covid-19" class="section level4">
-<h4>COVID-19</h4>
-<p>COVID-19 case data was downloaded from <a href="https://data.cdc.gov/Case-Surveillance/United-States-COVID-19-Cases-and-Deaths-by-State-o/9mfq-cb36">CDC</a>
-and processed similarly to ILI. The exception being that the incident
-case counts needed some adjustment as several were negative; presumably,
-this is an artifact of the calculation of incidence from cumulative case
-counts (e.g., today’s incident cases = today’s cumulative - yesterday’s
-cumulative) which may be adjusted post-hoc following case confirmations.
-So, the dates with negative case counts for <code>new_cases</code> were
-simply imputed: negative values were forced missing, missing values were
-interpolated using values at dates +- 1 (i.e., today’s new cases =
-(yesterdays+tomorrows)/2), if that is not possible due to consecutive
-missings (i.e., negatives) then the values are set at zero.
-Post-processing and analysis of this type of data could be useful to
-look into later.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9DT1ZJRC5SXCIpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_COVID.R&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-</div>
-<div id="spatial-data" class="section level3">
-<h3>Spatial Data</h3>
-<p>Next, we process some spatial data: shapefiles for US counties and
-states, coordinates for population centers for counties and states, and
-a relational / lookup table for US administrative regions for the census
-and Health and Human Services (HHS).</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9TcGF0aWFsLlJcIiwgZWNobyA9IFQpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_Spatial.R&quot;, echo = T)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="mobility-data-1" class="section level3">
-<h3>Mobility Data</h3>
-<p>Worker commuting flows from the American Community Survey is
-downloaded as an excel spreadsheet, though not in a tidy data format
-(e.g., there is extra fluff at the top and bottom of the excel table).
-For some reason, there were problems reading in the file as downloaded
-even when using skip or range arguments. So, we just manually deleted
-the extra fluff and saved as a separate file. The process script is
-simple enough as it just loads the data, converts some of the variable
-types to character or factor or numeric, and then saves an .rds file.
-The script is sourced using the following code:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9BQ1MuUlwiLCBlY2hvID0gVClcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_ACS.R&quot;, echo = T)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>The ACS data essentially contain four main variables: a location of
-residence (at the scale of county), a location of work, a point estimate
-of the number of workers commuting between the two locations, and an
-estimate of uncertainty (i.e., margin of error) for the point estimate.
-For now, we will focus on the locations and the point estimate and
-return to the uncertainty later for sensitivity analyses.</p>
-</div>
-</div>
-<div id="data-engineering-1" class="section level2">
-<h2>Data Engineering</h2>
-<div id="incidence" class="section level3">
-<h3>Incidence</h3>
-<div id="ili-1" class="section level4">
-<h4>ILI</h4>
-<p>First, we will need to find the seasons for which we have complete
-data. Then for each season and each location, we need to sum the counts,
-and subsequently use them to calculate a proportion similar to epidemic
-intensity calculations or shannon entropy across the weeks of an
-epidemic season.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9JTElfQ3VydmVfUHJvcG9ydGlvbnMuUlwiLCBlY2hvPVRSVUUpXG5gYGAifQ== -->
-<pre class="r"><code>source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_ILI_Curve_Proportions.R&quot;, echo=TRUE)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="covid-19-1" class="section level4">
-<h4>COVID-19</h4>
-<p>No further cleaning / transformation needed.</p>
-</div>
-</div>
-<div id="spatial-data-1" class="section level3">
-<h3>Spatial Data</h3>
-<p>No further cleaning / transformation needed.</p>
-</div>
-<div id="mobility-data-2" class="section level3">
-<h3>Mobility Data</h3>
-<div id="commuting-1" class="section level4">
-<h4>Commuting</h4>
-<p>Just got to use the igraph package to set up the R object from the
-origin-destination format after summing to the state level.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9BQ1NfTmV0d29yay5SXCIsIGVjaG8gPSBUUlVFKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_ACS_Network.R&quot;, echo = TRUE)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<div id="gravity-approximation" class="section level5">
-<h5>Gravity Approximation</h5>
-<p>The commuting data were used to fit a gravity model to the data (a
-common approximation used in simulation modeling, in lieu of commuting
-data). Log linear models were fit to the data similar to Viboud et al
-(2006). That is, I estimated gravity as</p>
-<p><span class="math display">\[log(Gravity) = \beta_0 +
-\beta_1log(N_{origin}) + \beta_2log(N_{destination}) +
-\beta_3log(distance_{origin-destination}),\]</span></p>
-<p>where <span class="math inline">\(\beta_0\)</span> represents the
-proportionality constant, <span class="math inline">\(\beta_{1,2}\)</span> are the mass exponents for
-the origin and destination population sizes, respectively, and <span class="math inline">\(\beta_3\)</span> is the distance exponent.
-Additionally, an indicator variable for a distance threshold was
-included as an interaction term with all other terms to estimate the
-parameters separately for shorter and longer distances, as distinguished
-by the distance threshold. The distance threshold was estimated to
-minimize the sum of squared errors from the model fits, tangentially to
-the other parameters. The following script estimates the gravity and
-creates a network to represent it:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9BQ1MtR3Jhdml0eV9OZXR3b3JrLlJcIilcbmBgYCJ9 -->
-<pre class="r"><code>source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_ACS-Gravity_Network.R&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="radiation-model" class="section level5">
-<h5>Radiation Model</h5>
-<p>The formulation for the radiation model of human mobility as given by
-Simini et al (2012) was used to create another network. This formulation
-is non-parameteric and only uses populations sizes and distances in its
-approximation of commuter volume.</p>
-<p>The following script estimates the commuter volume using the
-radiation model and generates a network object:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9BQ1MtUmFkaWF0aW9uX05ldHdvcmsuUlwiKVxuYGBgIn0= -->
-<pre class="r"><code>source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_ACS-Radiation_Network.R&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-</div>
 </div>
 </div>
 <div id="data-management-analysis-setup" class="section level2">
@@ -2312,72 +1922,47 @@ of cumulative incidence (square root transformed) OR (“2” suffix) the
 sub-component of shannon entropy (sqrt(p*log(p)); also square root
 transformed as indicated). The method assumes a normally distributed
 continuous variable.</p>
-<p>The proportions’ distribution is not truly normal (theoretically or
-practically), but a square root transformation does seem to help as
-inspected from a histogram. I looked into some spatial scan statistics
-for beta distribution but they are relatively new, not available in
-current package. Normal approximation should suffice for our purposes.
-Additionally, using the work of Dalziel et al and their formulation of
-epidemic intensity based off of shannon entropy, I calculated each weeks
-individual contribution to the shannon entropy; that is,</p>
-<p><span class="math display">\[entropy~ unit_{i,j} =
-(-1*Pr(ILI_{i,j}/ILI_{total, i,j})*log(Pr(ILI_{i,j}/ILI_{total,
-i,j}))).\]</span></p>
-<p>The programs are run using square root transforms of the entropy
-units.</p>
-<p>In addition to a “normally” distributed “case” characteristic
-(proportions cumulative ILI or entropy unit), each value needs a weight
-assigned to it so that the underlying logic/rationale / variance
-estimation understands that the given value is an “average” for the
-entire region (or data sample). I found in the help documentation for
-satscan that a population can be used instead of a weight. So, at first
-I thought to use the analog for proportion of cumulative total patients
-(the weekly denominator for ILI data, similarly processed as the
-proportions of cumulative ILI incidence). However, I’m also think that
-it may be better to use the cumulative total patients count for a single
+<p>In addition to a “normally” distributed “case” characteristic, each
+value needs a weight assigned to it so that the underlying
+logic/rationale / variance estimation understands that the given value
+is an “average” for the entire region (or data sample). I found in the
+help documentation for satscan that a population can be used instead of
+a weight. So, at first I thought to use the cumulative total patients
+(the weekly denominator for ILI data). However, I’m also think that it
+may be better to use the cumulative total patients count for a single
 location season for each week in that season. But im torn. Variance in
 proportion of cumulative ILI may depend on … proportion of observed
 patients at that location during that week. I don’t think it should be
 the raw counts for either ILI or total patients, the whole proportion
-calculation is a work around to known bias. So, we’ll just go with
-proportion cumulative total patients for now.</p>
+calculation is a work around to known bias. So, we’ll just go with total
+patients for now.</p>
 <p>Case file has (location-label week value value-weight). So, an
 individual case file is written for each week; the coordinates file is
 set once. The text files are written in the following scripts:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBzcXJ0KElMSSBwcm9wb3J0aW9uIG9mIGN1bXVsYXRpdmUgaW5jaWRlbmNlIHBlciB3ZWVrIHBlciBzdGF0ZSlcbiMgc2F0c2NhbiBub3JtYWwgZGlzdFxuIyAuL1NhVFNjYW4vaW5wdXQgb3V0cHV0XG5zb3VyY2UoXCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJlcF9GaWxlc19TYVRTY2FuX0lMSV9TcGF0aWFsLlJcIilcbiMgc3FydChlcGlkZW1pYyBpbnRlbnNpdHkgdW5pdClcbiMgIyBlaSB1bml0ID0gKCgocCAqIGxvZyhwKSkqLTEpXigtMSkgLSBhcmdtaW4pL2FyZ21heCB+flswLDFdXG4jIC4vU2FUU2Nhbi9pbnB1dDIgb3V0cHV0Mlxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3ByZXBfRmlsZXNfU2FUU2Nhbl9JTElfU3BhdGlhbDIuUlwiKVxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3ByZXBfRmlsZXNfU2FUU2Nhbl9JTElfQUNTLlJcIikgIyBuZXR3b3JrIGluc3RlYWQgb2Ygc3BhdGlhbCBjb29yZGluYXRlc1xuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3ByZXBfRmlsZXNfU2FUU2Nhbl9JTElfR3Jhdml0eS5SXCIpICMgbmV0d29yayBpbnN0ZWFkIG9mIHNwYXRpYWwgY29vcmRpbmF0ZXNcbnNvdXJjZShcIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcmVwX0ZpbGVzX1NhVFNjYW5fSUxJX1JhZGlhdGlvbi5SXCIpICMgbmV0d29yayBpbnN0ZWFkIG9mIHNwYXRpYWwgY29vcmRpbmF0ZXNcblxuIyBjb3ZpZCBjYXNlIGNvdW50c1xuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3ByZXBfRmlsZXNfU2FUU2Nhbl9DT1ZJRF9TcGF0aWFsLlJcIilcbnNvdXJjZShcIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcmVwX0ZpbGVzX1NhVFNjYW5fQ09WSURfQUNTLlJcIilcbnNvdXJjZShcIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcmVwX0ZpbGVzX1NhVFNjYW5fQ09WSURfR3Jhdml0eS5SXCIpXG5zb3VyY2UoXCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJlcF9GaWxlc19TYVRTY2FuX0NPVklEX1JhZGlhdGlvbi5SXCIpXG5cbmBgYCJ9 -->
-<pre class="r"><code># sqrt(ILI proportion of cumulative incidence per week per state)
-# satscan normal dist
-# ./SaTScan/input output
-source(&quot;./02-Scripts/01-Data-Wrangling/prep_Files_SaTScan_ILI_Spatial.R&quot;)
-# sqrt(epidemic intensity unit)
-# # ei unit = (((p * log(p))*-1)^(-1) - argmin)/argmax ~~[0,1]
-# ./SaTScan/input2 output2
-source(&quot;./02-Scripts/01-Data-Wrangling/prep_Files_SaTScan_ILI_Spatial2.R&quot;)
-source(&quot;./02-Scripts/01-Data-Wrangling/prep_Files_SaTScan_ILI_ACS.R&quot;) # network instead of spatial coordinates
-source(&quot;./02-Scripts/01-Data-Wrangling/prep_Files_SaTScan_ILI_Gravity.R&quot;) # network instead of spatial coordinates
-source(&quot;./02-Scripts/01-Data-Wrangling/prep_Files_SaTScan_ILI_Radiation.R&quot;) # network instead of spatial coordinates
-
-# covid case counts
-source(&quot;./02-Scripts/01-Data-Wrangling/prep_Files_SaTScan_COVID_Spatial.R&quot;)
-source(&quot;./02-Scripts/01-Data-Wrangling/prep_Files_SaTScan_COVID_ACS.R&quot;)
-source(&quot;./02-Scripts/01-Data-Wrangling/prep_Files_SaTScan_COVID_Gravity.R&quot;)
-source(&quot;./02-Scripts/01-Data-Wrangling/prep_Files_SaTScan_COVID_Radiation.R&quot;)
-</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVjMjkxY21ObEtGd2lMaTh3TWkxVFkzSnBjSFJ6THpBeExVUmhkR0V0VjNKaGJtZHNhVzVuTDNCeVpYQmZSbWxzWlhOZlUyRlVVMk5oYmw5SlRFa3VVbHdpS1Z4dVlHQmdJbjA9IC0tPlxuXG5gYGByXG5zb3VyY2UoXCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJlcF9GaWxlc19TYVRTY2FuX0lMSS5SXCIpXG5gYGBcblxuPCEtLSBybmItc291cmNlLWVuZCAtLT5cbiJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3ByZXBfRmlsZXNfU2FUU2Nhbl9JTEkuUlwiKVxuYGBgIn0= -->
+<pre class="r"><code>source(&quot;./02-Scripts/01-Data-Wrangling/prep_Files_SaTScan_ILI.R&quot;)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Note: these are duplicated scripts that have a single slight
-difference in the variables used when writing the case files for
-satscan, either sqrt proportion or (2) sqrt entropy unit. The next
-couple steps will also have duplicated scripts for each of these.</p>
-<div id="satscan-parameters" class="section level4">
-<h4>SaTScan Parameters</h4>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVjMjkxY21ObEtGd2lMaTh3TWkxVFkzSnBjSFJ6THpBeExVUmhkR0V0VjNKaGJtZHNhVzVuTDNCeVpYQmZSbWxzWlhOZlUyRlVVMk5oYmw5QlpHcGhZMlZ1WTNrdVVsd2lLVnh1WUdCZ0luMD0gLS0+XG5cbmBgYHJcbnNvdXJjZShcIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcmVwX0ZpbGVzX1NhVFNjYW5fQWRqYWNlbmN5LlJcIilcbmBgYFxuXG48IS0tIHJuYi1zb3VyY2UtZW5kIC0tPlxuIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3ByZXBfRmlsZXNfU2FUU2Nhbl9BZGphY2VuY3kuUlwiKVxuYGBgIn0= -->
+<pre class="r"><code>source(&quot;./02-Scripts/01-Data-Wrangling/prep_Files_SaTScan_Adjacency.R&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="satscan-parameters" class="section level3">
+<h3>SaTScan Parameters</h3>
 <p>Intermediate step, manually create a parameters file for satscan to
 read. I think <code>satscan</code> package helps with that but I just
 used gui to save file after manually selecting options.</p>
-</div>
 </div>
 </div>
 <div id="analysis---satscan" class="section level2">
@@ -2389,32 +1974,14 @@ option needed there is a parameters file indicating the input files
 <p>The script loops over list of dates and replaces the input file
 string in the parameters file with each run. So, the program does a
 purely spatial clustering analysis assuming a continuously distributed
-outcome variable (the proportions of cumulative ILI observed at a given
-location at a given week; or (2) the shannon entropy component).</p>
-<p>Here are the scripts:</p>
+outcome variable.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyB3YXJuaW5nIHRoZXkgdGFrZSBhYm91dCA1MCBtaW51dGVzIHRvIGNvbXBsZXRlLCBlYWNoXG5hbGwuc3RhcnQgPC0gU3lzLnRpbWUoKVxuYWxsLnN0YXJ0XG5cbiMgc3FydCBwcm9wb3J0aW9uIGN1bXVsYXRpdmUgSUxJXG5zb3VyY2UoXCIuLzAyLVNjcmlwdHMvMDItSGVscGVyLUZ1bmN0aW9ucy9ydW5fUHJvZ3JhbV9TYVRTY2FuX0lMSV9TcGF0aWFsLlJcIilcbiMgc3FydCBlbnRyb3B5IHVuaXRcbnNvdXJjZShcIi4vMDItU2NyaXB0cy8wMi1IZWxwZXItRnVuY3Rpb25zL3J1bl9Qcm9ncmFtX1NhVFNjYW5fSUxJX1NwYXRpYWwyLlJcIilcbnNvdXJjZShcIi4vMDItU2NyaXB0cy8wMi1IZWxwZXItRnVuY3Rpb25zL3J1bl9Qcm9ncmFtX1NhVFNjYW5fSUxJX0FDUy5SXCIpICMgbmV0d29ya1xuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAyLUhlbHBlci1GdW5jdGlvbnMvcnVuX1Byb2dyYW1fU2FUU2Nhbl9JTElfR3Jhdml0eS5SXCIpXG5zb3VyY2UoXCIuLzAyLVNjcmlwdHMvMDItSGVscGVyLUZ1bmN0aW9ucy9ydW5fUHJvZ3JhbV9TYVRTY2FuX0lMSV9SYWRpYXRpb24uUlwiKVxuXG4jIGNvdmlkXG5zb3VyY2UoXCIuLzAyLVNjcmlwdHMvMDItSGVscGVyLUZ1bmN0aW9ucy9ydW5fUHJvZ3JhbV9TYVRTY2FuX0NPVklEX1NwYXRpYWwuUlwiKVxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAyLUhlbHBlci1GdW5jdGlvbnMvcnVuX1Byb2dyYW1fU2FUU2Nhbl9DT1ZJRF9BQ1MuUlwiKVxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAyLUhlbHBlci1GdW5jdGlvbnMvcnVuX1Byb2dyYW1fU2FUU2Nhbl9DT1ZJRF9HcmF2aXR5LlJcIilcbnNvdXJjZShcIi4vMDItU2NyaXB0cy8wMi1IZWxwZXItRnVuY3Rpb25zL3J1bl9Qcm9ncmFtX1NhVFNjYW5fQ09WSURfUmFkaWF0aW9uLlJcIilcbmFsbC5lbmQgPC0gU3lzLnRpbWUoKVxuYWxsLmVuZFxuYGBgIn0= -->
-<pre class="r"><code># warning they take about 50 minutes to complete, each
-all.start &lt;- Sys.time()
-all.start
-
-# sqrt proportion cumulative ILI
-source(&quot;./02-Scripts/02-Helper-Functions/run_Program_SaTScan_ILI_Spatial.R&quot;)
-# sqrt entropy unit
-source(&quot;./02-Scripts/02-Helper-Functions/run_Program_SaTScan_ILI_Spatial2.R&quot;)
-source(&quot;./02-Scripts/02-Helper-Functions/run_Program_SaTScan_ILI_ACS.R&quot;) # network
-source(&quot;./02-Scripts/02-Helper-Functions/run_Program_SaTScan_ILI_Gravity.R&quot;)
-source(&quot;./02-Scripts/02-Helper-Functions/run_Program_SaTScan_ILI_Radiation.R&quot;)
-
-# covid
-source(&quot;./02-Scripts/02-Helper-Functions/run_Program_SaTScan_COVID_Spatial.R&quot;)
-source(&quot;./02-Scripts/02-Helper-Functions/run_Program_SaTScan_COVID_ACS.R&quot;)
-source(&quot;./02-Scripts/02-Helper-Functions/run_Program_SaTScan_COVID_Gravity.R&quot;)
-source(&quot;./02-Scripts/02-Helper-Functions/run_Program_SaTScan_COVID_Radiation.R&quot;)
-all.end &lt;- Sys.time()
-all.end</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVjMjkxY21ObEtGd2lMaTh3TWkxVFkzSnBjSFJ6THpBMExVRnVZV3g1YzJsekwzSjFibDlRY205bmNtRnRYMU5oVkZOallXNHVVbHdpS1Z4dVlHQmdJbjA9IC0tPlxuXG5gYGByXG5zb3VyY2UoXCIuLzAyLVNjcmlwdHMvMDQtQW5hbHlzaXMvcnVuX1Byb2dyYW1fU2FUU2Nhbi5SXCIpXG5gYGBcblxuPCEtLSBybmItc291cmNlLWVuZCAtLT5cbiJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzA0LUFuYWx5c2lzL3J1bl9Qcm9ncmFtX1NhVFNjYW4uUlwiKVxuYGBgIn0= -->
+<pre class="r"><code>source(&quot;./02-Scripts/04-Analysis/run_Program_SaTScan.R&quot;)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Each SaTScan run generates an output text file (can do shapefiles and
@@ -2424,60 +1991,122 @@ as I had to debug).</p>
 </div>
 <div id="satscan-results-processing" class="section level2">
 <h2>SaTScan Results Processing</h2>
-<p>The following scripts read the output text files and parse the data
+<p>The following script reads the output text files and parse the data
 for each cluster into a dataframe:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBtZW1vcnkgZ3JlZWR5IC8gaW5lZmZpY2llbnQgY29kaW5nXG5zb3VyY2UoXCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19SZXN1bHRzX1NhVFNjYW5fSUxJX1NwYXRpYWwuUlwiKVxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfUmVzdWx0c19TYVRTY2FuX0lMSV9TcGF0aWFsMi5SXCIpXG5zb3VyY2UoXCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19SZXN1bHRzX1NhVFNjYW5fSUxJX0FDUy5SXCIpICMgbmV0d29ya1xuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfUmVzdWx0c19TYVRTY2FuX0lMSV9HcmF2aXR5LlJcIilcbnNvdXJjZShcIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcm9jZXNzX1Jlc3VsdHNfU2FUU2Nhbl9JTElfUmFkaWF0aW9uLlJcIilcblxuIyBjb3ZpZFxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfUmVzdWx0c19TYVRTY2FuX0NPVklEX1NwYXRpYWwuUlwiKVxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfUmVzdWx0c19TYVRTY2FuX0NPVklEX0FDUy5SXCIpXG5zb3VyY2UoXCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19SZXN1bHRzX1NhVFNjYW5fQ09WSURfR3Jhdml0eS5SXCIpXG5zb3VyY2UoXCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19SZXN1bHRzX1NhVFNjYW5fQ09WSURfUmFkaWF0aW9uLlJcIilcbmBgYCJ9 -->
-<pre class="r"><code># memory greedy / inefficient coding
-source(&quot;./02-Scripts/01-Data-Wrangling/process_Results_SaTScan_ILI_Spatial.R&quot;)
-source(&quot;./02-Scripts/01-Data-Wrangling/process_Results_SaTScan_ILI_Spatial2.R&quot;)
-source(&quot;./02-Scripts/01-Data-Wrangling/process_Results_SaTScan_ILI_ACS.R&quot;) # network
-source(&quot;./02-Scripts/01-Data-Wrangling/process_Results_SaTScan_ILI_Gravity.R&quot;)
-source(&quot;./02-Scripts/01-Data-Wrangling/process_Results_SaTScan_ILI_Radiation.R&quot;)
-
-# covid
-source(&quot;./02-Scripts/01-Data-Wrangling/process_Results_SaTScan_COVID_Spatial.R&quot;)
-source(&quot;./02-Scripts/01-Data-Wrangling/process_Results_SaTScan_COVID_ACS.R&quot;)
-source(&quot;./02-Scripts/01-Data-Wrangling/process_Results_SaTScan_COVID_Gravity.R&quot;)
-source(&quot;./02-Scripts/01-Data-Wrangling/process_Results_SaTScan_COVID_Radiation.R&quot;)</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVjMjkxY21ObEtGd2lMaTh3TWkxVFkzSnBjSFJ6THpBeExVUmhkR0V0VjNKaGJtZHNhVzVuTDNCeWIyTmxjM05mVW1WemRXeDBjMTlUWVZSVFkyRnVMbEpjSWlsY2JtQmdZQ0o5IC0tPlxuXG5gYGByXG5zb3VyY2UoXCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19SZXN1bHRzX1NhVFNjYW4uUlwiKVxuYGBgXG5cbjwhLS0gcm5iLXNvdXJjZS1lbmQgLS0+XG4ifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfUmVzdWx0c19TYVRTY2FuLlJcIilcbmBgYCJ9 -->
+<pre class="r"><code>source(&quot;./02-Scripts/01-Data-Wrangling/process_Results_SaTScan.R&quot;)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Then, these scripts further process the satscan results to transform
-the data into an adjacency matrix and then a network object:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBpbGlcbnNvdXJjZShcIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcm9jZXNzX0RhdGFfU2FUU2Nhbl9JTElfU3BhdGlhbF9OZXR3b3JrLlJcIilcbnNvdXJjZShcIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcm9jZXNzX0RhdGFfU2FUU2Nhbl9JTElfU3BhdGlhbDJfTmV0d29yay5SXCIpXG5zb3VyY2UoXCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19EYXRhX1NhVFNjYW5fSUxJX0FDU19OZXR3b3JrLlJcIilcbnNvdXJjZShcIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcm9jZXNzX0RhdGFfU2FUU2Nhbl9JTElfR3Jhdml0eV9OZXR3b3JrLlJcIilcbnNvdXJjZShcIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcm9jZXNzX0RhdGFfU2FUU2Nhbl9JTElfUmFkaWF0aW9uX05ldHdvcmsuUlwiKVxuXG5zb3VyY2UoXCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19EYXRhX1NhVFNjYW5fSUxJX1NwYXRpYWxzZWFzb25hbF9OZXR3b3JrLlJcIilcbnNvdXJjZShcIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcm9jZXNzX0RhdGFfU2FUU2Nhbl9JTElfU3BhdGlhbDJzZWFzb25hbF9OZXR3b3JrLlJcIilcbnNvdXJjZShcIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcm9jZXNzX0RhdGFfU2FUU2Nhbl9JTElfQUNTc2Vhc29uYWxfTmV0d29yay5SXCIpXG5zb3VyY2UoXCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19EYXRhX1NhVFNjYW5fSUxJX0dyYXZpdHlzZWFzb25hbF9OZXR3b3JrLlJcIilcbnNvdXJjZShcIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcm9jZXNzX0RhdGFfU2FUU2Nhbl9JTElfUmFkaWF0aW9uc2Vhc29uYWxfTmV0d29yay5SXCIpXG5cblxuIyBjb3ZpZFxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9TYVRTY2FuX0NPVklEX1NwYXRpYWxfTmV0d29yay5SXCIpXG5zb3VyY2UoXCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19EYXRhX1NhVFNjYW5fQ09WSURfQUNTX05ldHdvcmsuUlwiKVxuc291cmNlKFwiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9TYVRTY2FuX0NPVklEX0dyYXZpdHlfTmV0d29yay5SXCIpXG5zb3VyY2UoXCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19EYXRhX1NhVFNjYW5fQ09WSURfUmFkaWF0aW9uX05ldHdvcmsuUlwiKVxuYGBgIn0= -->
-<pre class="r"><code># ili
-source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_ILI_Spatial_Network.R&quot;)
-source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_ILI_Spatial2_Network.R&quot;)
-source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_ILI_ACS_Network.R&quot;)
-source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_ILI_Gravity_Network.R&quot;)
-source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_ILI_Radiation_Network.R&quot;)
-
-source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_ILI_Spatialseasonal_Network.R&quot;)
-source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_ILI_Spatial2seasonal_Network.R&quot;)
-source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_ILI_ACSseasonal_Network.R&quot;)
-source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_ILI_Gravityseasonal_Network.R&quot;)
-source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_ILI_Radiationseasonal_Network.R&quot;)
-
-
-# covid
-source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_COVID_Spatial_Network.R&quot;)
-source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_COVID_ACS_Network.R&quot;)
-source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_COVID_Gravity_Network.R&quot;)
-source(&quot;./02-Scripts/01-Data-Wrangling/process_Data_SaTScan_COVID_Radiation_Network.R&quot;)</code></pre>
-<!-- rnb-source-end -->
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>These will be transferred to another repo for a secondary
 analysis.</p>
+</div>
+<div id="visualizations" class="section level2">
+<h2>Visualizations</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVZR0JnY2x4dWMyOTFjbU5sS0Z4Y0xpOHdNaTFUWTNKcGNIUnpMekF4TFVSaGRHRXRWM0poYm1kc2FXNW5MM0J5YjJObGMzTmZVbVZ6ZFd4MGMxOVRZVlJUWTJGdUxsSmNYQ2xjYm1CZ1lGeHVZR0JnSW4wPSAtLT5cblxuYGBgclxuYGBgclxuc291cmNlKFxcLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfUmVzdWx0c19TYVRTY2FuLlJcXClcbmBgYFxuYGBgXG5cbjwhLS0gcm5iLXNvdXJjZS1lbmQgLS0+XG4ifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfUmVzdWx0c19TYVRTY2FuLlJcXClcbmBgYFxuYGBgIn0= -->
+<pre class="r"><code>```r
+source(\./02-Scripts/01-Data-Wrangling/process_Results_SaTScan.R\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+
+&lt;!-- rnb-output-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVZR0JnY2x4dWMyOTFjbU5sS0Z4Y0xpOHdNaTFUWTNKcGNIUnpMekF6TFZacGMzVmhiR2w2WVhScGIyNHZaMlZ1WlhKaGRHVmZSbXhsZUhSaFlteGxYMU4xYlcxaGNtbGxjeTVTWEZ3cFhHNWdZR0JjYm1CZ1lDSjkgLS0+XG5cbmBgYHJcbmBgYHJcbnNvdXJjZShcXC4vMDItU2NyaXB0cy8wMy1WaXN1YWxpemF0aW9uL2dlbmVyYXRlX0ZsZXh0YWJsZV9TdW1tYXJpZXMuUlxcKVxuYGBgXG5gYGBcblxuPCEtLSBybmItc291cmNlLWVuZCAtLT5cbiJ9 --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcLi8wMi1TY3JpcHRzLzAzLVZpc3VhbGl6YXRpb24vZ2VuZXJhdGVfRmxleHRhYmxlX1N1bW1hcmllcy5SXFwpXG5gYGBcbmBgYCJ9 --&gt;
+
+```r
+```r
+source(\./02-Scripts/03-Visualization/generate_Flextable_Summaries.R\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+
+&lt;!-- rnb-output-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVZR0JnY2x4dWMyOTFjbU5sS0Z4Y0xpOHdNaTFUWTNKcGNIUnpMekF6TFZacGMzVmhiR2w2WVhScGIyNHZaMlZ1WlhKaGRHVmZSbWxuZFhKbGMxOURiSFZ6ZEdWeWMxOXZkbVZ5WDFScGJXVXVVbHhjS1Z4dVlHQmdYRzVnWUdBaWZRPT0gLS0+XG5cbmBgYHJcbmBgYHJcbnNvdXJjZShcXC4vMDItU2NyaXB0cy8wMy1WaXN1YWxpemF0aW9uL2dlbmVyYXRlX0ZpZ3VyZXNfQ2x1c3RlcnNfb3Zlcl9UaW1lLlJcXClcbmBgYFxuYGBgXG5cbjwhLS0gcm5iLXNvdXJjZS1lbmQgLS0+XG4ifQ== --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcLi8wMi1TY3JpcHRzLzAzLVZpc3VhbGl6YXRpb24vZ2VuZXJhdGVfRmlndXJlc19DbHVzdGVyc19vdmVyX1RpbWUuUlxcKVxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+source(\./02-Scripts/03-Visualization/generate_Figures_Clusters_over_Time.R\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+
+&lt;!-- rnb-output-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-output-begin eyJkYXRhIjoiXG48IS0tIHJuYi1zb3VyY2UtYmVnaW4gZXlKa1lYUmhJam9pWUdCZ2NseHVZR0JnY2x4dWMyOTFjbU5sS0Z4Y0xpOHdNaTFUWTNKcGNIUnpMekF6TFZacGMzVmhiR2w2WVhScGIyNHZaMlZ1WlhKaGRHVmZSbWxuZFhKbGMxOURiSFZ6ZEdWeVgwTnZiWEJ2YzJsMFpYTXVVbHhjS1Z4dVlHQmdYRzVnWUdBaWZRPT0gLS0+XG5cbmBgYHJcbmBgYHJcbnNvdXJjZShcXC4vMDItU2NyaXB0cy8wMy1WaXN1YWxpemF0aW9uL2dlbmVyYXRlX0ZpZ3VyZXNfQ2x1c3Rlcl9Db21wb3NpdGVzLlJcXClcbmBgYFxuYGBgXG5cbjwhLS0gcm5iLXNvdXJjZS1lbmQgLS0+XG4ifQ== --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc291cmNlKFxcLi8wMi1TY3JpcHRzLzAzLVZpc3VhbGl6YXRpb24vZ2VuZXJhdGVfRmlndXJlc19DbHVzdGVyX0NvbXBvc2l0ZXMuUlxcKVxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+source(\./02-Scripts/03-Visualization/generate_Figures_Cluster_Composites.R\)</code></pre>
+<p>```</p>
+<!-- rnb-source-end -->
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlJlcHJvZHVjaWJpbGl0eSBOb3RlYm9vayINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCiMgUHJvamVjdCBPdmVydmlldw0KDQpUaGlzIHJlcG9zaXRvcnkgLyBjb2xsZWN0aW9uIG9mIHNjcmlwdHMgaXMgYSBjb21wb25lbnQgb2YgQ29keSBEYWlsZXkncyBkaXNzZXJ0YXRpb24gcmVzZWFyY2guIEFsdG9nZXRoZXIsIHRoZSBzY29wZSBvZiB0aGlzIGRpc3NlcnRhdGlvbiByZXNlYXJjaCBzcGFucyB0aGUgc3BhdGlhbCBlcGlkZW1pb2xvZ3kgYW5kIGV2b2x1dGlvbiBvZiBzZWFzb25hbCBpbmZsdWVuemEgaW4gdGhlIFVuaXRlZCBTdGF0ZXMgZnJvbSAyMDEwIHRvIDIwMjAuIEhlcmUsIEkgZm9jdXMgb24gYW4gaW5pdGlhbCBleHBsb3JhdGlvbiBvZiBpbmZsdWVuemEtbGlrZSBpbGxuZXNzIGluY2lkZW5jZSBhbmQgc2Vhc29uYWwgZXBpZGVtaWMgaW50ZW5zaXR5LiAgIA0KICANCj4gSG93IGRvIHlvdSBlYXQgYW4gZWxlcGhhbnQ/ICANCj4gICANCj4+IE9uZSBiaXRlIGF0IGEgdGltZS4gIA0KICANCiMjIERvY3VtZW50IE92ZXJ2aWV3DQoNClRoaXMgZG9jdW1lbnQgaXMgbXkgInJlcHJvZHVjaWJpbGl0eSBub3RlYm9vayIsIGJhc2ljYWxseSwgYSBkYXRhIGFuYWx5c3QncyB2ZXJzaW9uIG9mIGEgbGFiIG5vdGVib29rLiBJdCBjb250YWlucyAoaG9wZWZ1bGx5KSBhbiBlYXN5LXRvLWZvbGxvdyBkZXNjcmlwdGlvbiBvZiBkYXRhIG1hbmFnZW1lbnQgYW5kIGFuYWx5c2VzIHdpdGggYXNzb2NpYXRlZCBzY3JpcHRzLiBNeSBnb2FsIHdpdGggdGhpcyBkb2N1bWVudCBpcyB0byBlbnN1cmUgcmVwcm9kdWNpYmlsaXR5IGluIG15IHJlc2VhcmNoLiBCZWxvdywgSSB3aWxsIGRlc2NyaWJlIG5lY2Vzc2FyeSBzdGVwcyBpbiBteSB3b3JrZmxvdyB3aGlsZSBzb3VyY2luZyB2YXJpb3VzIHNjcmlwdHMgdG8gaW1wbGVtZW50IC8gZXhlY3V0ZSB0aGlzIHdvcmtmbG93LiBOb3RlIHRoYXQgdGhpcyBpcyBzdXBwbGVtZW50YWwgaW5mb3JtYXRpb24gdG8gdGhlIHRyYWRpdGlvbmFsIHNjaWVudGlmaWMgbWFudXNjcmlwdCAod2hpY2ggaXMgZm91bmQgaW4gYW5vdGhlciBkb2N1bWVudCkgYW5kIHdpbGwgaW5jbHVkZSBtdWNoIG1vcmUgdGVjaG5pY2FsIGRldGFpbHMgYW5kIGFuYWx5dGljYWwgZGVjaXNpb25zIC8gY29tbWVudGFyeS4gDQoNCg0KDQojIE9iamVjdGl2ZQ0KDQoqIFRvIGlkZW50aWZ5IHNwYXRpYWwgYW5kIG5ldHdvcmsgY2x1c3RlcmluZyBwYXR0ZXJucyBpbiBpbmZsdWVuemEtbGlrZSBpbGxuZXNzIGluIHRoZSBVUyBmcm9tIDIwMTEgdG8gMjAyMA0KDQoNCiMgQXBwcm9hY2gNCg0KDQoNCmBgYHtyfQ0Kc291cmNlKCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19EYXRhX0lMSS5SIikNCmBgYA0KDQpgYGB7cn0NCnNvdXJjZSgiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9JTElfUmF0ZXNfb2ZfQ2hhbmdlLlIiKQ0KYGBgDQoNCg0KDQpgYGB7cn0NCnNvdXJjZSgiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3ByZXBfRmlsZXNfU2FUU2Nhbl9JTEkuUiIpDQpgYGANCg0KDQoNCmBgYHtyfQ0Kc291cmNlKCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19EYXRhX0FDUy5SIikNCmBgYA0KDQoNCmBgYHtyfQ0Kc291cmNlKCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19EYXRhX1NwYXRpYWwuUiIpDQpgYGANCg0KDQoNCmBgYHtyfQ0Kc291cmNlKCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJlcF9GaWxlc19TYVRTY2FuX0FkamFjZW5jeS5SIikNCmBgYA0KDQoNCg0KYGBge3J9DQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wNC1BbmFseXNpcy9ydW5fUHJvZ3JhbV9TYVRTY2FuLlIiKQ0KYGBgDQoNCg0KYGBge3J9DQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcm9jZXNzX1Jlc3VsdHNfU2FUU2Nhbi5SIikNCmBgYA0KDQoNCmBgYHtyfQ0Kc291cmNlKCIuLzAyLVNjcmlwdHMvMDMtVmlzdWFsaXphdGlvbi9nZW5lcmF0ZV9UYWJsZV9TdW1tYXJpZXMuUiIpDQpgYGANCg0KDQpgYGB7cn0NCnNvdXJjZSgiLi8wMi1TY3JpcHRzLzAzLVZpc3VhbGl6YXRpb24vZ2VuZXJhdGVfRmxleHRhYmxlX1N1bW1hcmllcy5SIikNCmBgYA0KDQoNCg0KYGBge3J9DQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMy1WaXN1YWxpemF0aW9uL2dlbmVyYXRlX0ZpZ3VyZXNfQ2x1c3RlcnNfb3Zlcl9UaW1lLlIiKQ0KYGBgDQoNCg0KYGBge3J9DQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMy1WaXN1YWxpemF0aW9uL2dlbmVyYXRlX0ZpZ3VyZXNfQ2x1c3Rlcl9Db21wb3NpdGVzLlIiKQ0KYGBgDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCiMjIERhdGEgUHJvY2Vzc2luZyAvIEluaXRpYWwgQ2xlYW5pbmcNCg0KIyMjIEluZmx1ZW56YS1saWtlIElsbG5lc3MNCg0KSUxJIGRhdGEgZnJvbSBGbHVWaWV3IGFuZCBGbG9yaWRhIERlcGFydG1lbnQgb2YgUHVibGljIEhlYWx0aCB3ZXJlIHByb2Nlc3NlZCB1c2luZyBmb2xsb3dpbmcgc2NyaXB0Og0KDQpgYGB7cn0NCnNvdXJjZSgiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9JTEkuUiIpDQpgYGANCg0KDQpEYXRhIHdlcmUgc3RvcmVkIGluIGEgZGF0YWZyYW1lIHdpdGggZWFjaCByb3cgY29ycmVzcG9uZGluZyB0byBhIHNwZWNpZmljIGxvY2F0aW9uIChzdGF0ZSkgZHVyaW5nIGEgc3BlY2lmaWMgd2VlayAoZXBpIHdlZWsgYW5kIGRhdGUpIHdpdGggdGhlIHJlcG9ydGVkIGNvdW50cyBvZiBJTEkgYW5kIHRvdGFsIHBhdGllbnRzIGZvciB0aGF0IGxvY2F0aW9uIGR1cmluZyB0aGF0IHdlZWsuIA0KDQpEYXRhIHdlcmUgb3JpZ2luYWxseSBzcGxpdCBmb3IgTmV3IFlvcmsgQ2l0eSBhbmQgTmV3IFlvcms7IEkgc3VtbWVkIHRob3NlIHRvIGEgc2luZ2xlIGxvY2F0aW9uLiBBbHNvLCBkYXRhIGZyb20gRmx1VmlldyBhcmUgbWlzc2luZyBGbG9yaWRhIGRhdGEgY29tcGxldGVseSwgYnV0IExEIHdhcyBhYmxlIHRvIG9idGFpbiBkYXRhIGZyb20gdGhlIEZsb3JpZGEgRGVwYXJ0bWVudCBvZiBQdWJsaWMgSGVhbHRoLiBUaGUgZGF0YSBncmVhdGx5IG92ZXJsYXAsIGJ1dCB0aGUgRmxvcmlkYSBkYXRhIHNlZW1zIHRvIGJlIG1pc3Npbmcgc29tZSBvZiB0aGUgZWFybGllc3QgYW5kIGxhdGVzdCBkYXRhIChlZmZlY3RpdmVseSB0cmltbWluZyB0aGUgZGF0YXNldCBmcm9tIGJvdGggdGltZXBvaW50cyBlbmRzKS4gDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KIyMjIFBvcHVsYXRpb24gRGF0YQ0KDQpOZXh0LCB3ZSBwcm9jZXNzIHNvbWUgcG9wdWxhdGlvbiBlc3RpbWF0ZXMgZnJvbSB0aGUgY2Vuc3VzLiBUaGlzIGlzIGEgc2ltcGxlIHNjcmlwdCB0byBleHRyYWN0IGEgdGlkeSBkZiBmcm9tIGEgdGFibGUgaW4gYW4gZXhjZWwgc3ByZWFkc2hlZXQ6IA0KDQpgYGB7cn0NCnNvdXJjZSgiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9Qb3B1bGF0aW9uLlIiLCBlY2hvID0gVCkNCmBgYA0KDQoNCg0KIyMjIE1vYmlsaXR5IERhdGENCg0KV29ya2VyIGNvbW11dGluZyBmbG93cyBmcm9tIHRoZSBBbWVyaWNhbiBDb21tdW5pdHkgU3VydmV5IGZvciBib3RoIDIwMTEtMjAxNSBhbmQgMjAxNi0yMDIwIGFyZSBkb3dubG9hZGVkIGFzIGV4Y2VsIHNwcmVhZHNoZWV0cywgdGhvdWdoIG5vdCBpbiBhIHRpZHkgZGF0YSBmb3JtYXQgKGUuZy4sIHRoZXJlIGlzIGV4dHJhIGZsdWZmIGF0IHRoZSB0b3AgYW5kIGJvdHRvbSBvZiB0aGUgZXhjZWwgdGFibGVzKS4gVGhlIEFDUyBkYXRhIGVzc2VudGlhbGx5IGNvbnRhaW4gZm91ciBtYWluIHZhcmlhYmxlczogYSBsb2NhdGlvbiBvZiByZXNpZGVuY2UsIGEgbG9jYXRpb24gb2Ygd29yaywgYSBwb2ludCBlc3RpbWF0ZSBvZiB0aGUgbnVtYmVyIG9mIHdvcmtlcnMgY29tbXV0aW5nIGJldHdlZW4gdGhlIHR3byBsb2NhdGlvbnMsIGFuZCBhbiBlc3RpbWF0ZSBvZiB1bmNlcnRhaW50eSAoaS5lLiwgbWFyZ2luIG9mIGVycm9yKSBmb3IgdGhlIHBvaW50IGVzdGltYXRlLiBUaGVzZSBkYXRhIGFyZSBhZ2dyZWdhdGVkIHRvIHRoZSBzdGF0ZSBsZXZlbCB0byBhbGlnbiB3aXRoIHRoZSBJTEkgZGF0YS4gSW4gYWdncmVnYXRpbmcgdGhlIGRhdGEgdG8gdGhlIHN0YXRlIGxldmVsLCB0aGUgbWVhc3VyZSBvZiB1bmNlcnRhaW50eSBpcyBsb3N0OyBpcyB0aGVyZSBhIHNpbXBsZSB3YXkgdG8gYWNjb3VudCBmb3IgZWFjaCBtYXJnaW4gb2YgZXJyb3IgaW4gYWdncmVnYXRlIGRhdGE/IEZvciBub3csIHdlIHdpbGwgZm9jdXMgb24gdGhlIGxvY2F0aW9ucyBhbmQgdGhlIHBvaW50IGVzdGltYXRlIGFuZCBwb3RlbnRpYWxseSByZXR1cm4gdG8gdGhlIHVuY2VydGFpbnR5IGxhdGVyIGZvciBzZW5zaXRpdml0eSBhbmFseXNlcy4gICANCiAgDQpUaGUgcHJvY2VzcyBzY3JpcHQgaXMgc2ltcGxlIGVub3VnaCBhcyBpdCBqdXN0IGxvYWRzIHRoZSBkYXRhLCBjYXRlZ29yaXplcyB0aGUgdHlwZSBvZiBjb21tdXRlciBmbG93IChpbnRyYWNvdW50eSwgaW50cmFzdGF0ZSwgaW50ZXJzdGF0ZSwgaW50ZXJuYXRpb25hbCksIGFnZ3JlZ2F0ZXMgdG90YWxzIHRvIHRoZSBzdGF0ZSBsZXZlbCwgY29tYmluZXMgdGhlIGRhdGEgZnJvbSBib3RoIHRpbWUgcmFuZ2VzLCBhbmQgdGhlbiBzYXZlcyBhbiAucmRzIGZpbGUuIEFkZGl0aW9uYWxseSwgdGhlIGRhdGEgYXJlIGV4cGFuZGVkIHRvIGhhdmUgZW50cmllcyBmb3IgYWxsIHBvc3NpYmxlIGNvbWJpbmF0aW9ucyBvZiBsb2NhdGlvbnM7IHRoaXMgYWxsb3dzIG1lIHRvIG5vdGUgdGhlICJ1bm9ic2VydmVkIiBmbG93cy4gIA0KDQpUaGUgc2NyaXB0IGlzIHNvdXJjZWQgdXNpbmcgdGhlIGZvbGxvd2luZyBjb2RlOg0KDQpgYGB7cn0NCnNvdXJjZSgiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9BQ1MuUiIsIGVjaG8gPSBUKQ0KYGBgDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQojIyBEYXRhIEVuZ2luZWVyaW5nDQoNCiMjIyBJTEkgDQoNCkZpcnN0LCB3ZSB3aWxsIG5lZWQgdG8gZmluZCB0aGUgc2Vhc29ucyBmb3Igd2hpY2ggd2UgaGF2ZSBjb21wbGV0ZSBkYXRhLiBUaGVuIGZvciBlYWNoIHNlYXNvbiBhbmQgZWFjaCBsb2NhdGlvbiwgd2UgbmVlZCB0byBzdW0gdGhlIGNvdW50cyBmb3IgY3VtdWxhdGl2ZSBzZWFzb24gdG90YWxzLCBhbmQgc3Vic2VxdWVudGx5IHVzZSB0aGVtIHRvIGNhbGN1bGF0ZSBhIHByb3BvcnRpb24gb2YgY3VtdWxhdGl2ZSBzZWFzb24gSUxJIHRvdGFscyBvYnNlcnZlZCBpbiBhIGdpdmVuIHdlZWsuIA0KDQpUaGVzZSBwcm9wb3J0aW9ucyBhcmUgdXNlZCB0byBjYWxjdWxhdGUgZXBpZGVtaWMgaW50ZW5zaXR5LCB3aGljaCBpcyBhIHNsaWdodCBtb2RpZmljYXRpb24gb2YgU2hhbm5vbiBlbnRyb3B5IGFjcm9zcyB0aGUgd2Vla3Mgb2YgYW4gZXBpZGVtaWMgc2Vhc29uLiBXaGlsZSBTaGFubm9uIGVudHJvcHkgaXMgbWF4aW1pemVkIHdpdGggYmFsYW5jZSBhY3Jvc3MgdGhlIGNhdGVnb3JpY2FsIHZhcmlhYmxlLCBpLmUuLCB3ZWVrLCBlcGlkZW1pYyBpbnRlbnNpdHkgaXMgaW52ZXJ0ZWQgc28gdGhhdCBsYXJnZXIgdmFsdWVzIGNvcnJlc3BvbmQgdG8gbW9yZSAiaW50ZW5zZSIgZXBpZGVtaWNzIHRoYXQgYXJlIGZvY3VzZWQgaW4gYSBzbWFsbGVyIHRpbWUgZnJhbWUgKGxhcmdlciBwZWFrcykuIEFkZGl0aW9uYWxseSwgZXBpZGVtaWMgaW50ZW5zaXR5IGlzIHJlc2NhbGVkIHNvIHRoYXQgZ2xvYmFsIG1pbmltdW0gaXMgemVybyBhbmQgZ2xvYmFsIG1heGltdW0gaXMgb25lIChnbG9iYWwgbWVhbmluZyBhY3Jvc3MgYWxsIHNlYXNvbnMgYW5kIHJlZ2lvbnMgaW4gdGhlIGRhdGFzZXQpLiANCg0KRWFjaCBuZXcgc2Vhc29uIGJlZ2lucyBpbiBlcGlkZW1pb2xvZ2ljYWwgd2VlayA0MCAofk9jdG9iZXIpLiBJTEkgZGF0YSBmb3IgdGhlIE1hcmlhbmEgSXNsYW5kcyBhbmQgVmlyZ2luIElzbGFuZHMgYXJlIGRyb3BwZWQgaGVyZSBhcyB0aGUgZm9ybWVyIGlzIG1pc3NpbmcgYWxsIElMSSBkYXRhIGFuZCBuZWl0aGVyIGFyZSBpbiB0aGUgbW9iaWxpdHkgZGF0YS4gRm9yIHRoZSB3ZWVrcyB3aXRoIHplcm8gY291bnRzIG9mIElMSSwgdGhlIGluZGl2aWR1YWwgd2VlaydzIGVwaWRlbWljIGludGVuc2l0eSB1bml0IC8gZW50cm9weSB1bml0IChpLmUuLCBwKmxvZyhwKSkgaXMgaW5kZXRlcm1pbmF0ZSAobG9nKDApKSBhbmQgcmVwbGFjZWQgd2l0aCBhIHplcm8gdmFsdWUuIA0KDQpgYGB7cn0NCnNvdXJjZSgiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9JTElfQ3VydmVfUHJvcG9ydGlvbnMuUiIsIGVjaG89VFJVRSkNCmBgYA0KDQpJbiBleGFtaW5pbmcgZGF0YSBtaXNzaW5nbmVzcywgSSBub3RlZCB0aGF0IHRoZSBkYXRhIHZhbHVlcyBmb3IgdGhlICJ5ZWFyIiBhcmUgaW5jb3JyZWN0IGZvciB3ZWVrIHN0YXJ0cyBhdCBlbmQgb2YgRGVjZW1iZXI7IGZvciBleGFtcGxlLCB0aGUgeWVhciBmb3IgdGhlIHdlZWsgc3RhcnQgb2YgMzAgRGVjZW1iZXIgMjAxMiBpcyBlbnRlcmVkIGFzIDIwMTMuIFBlcmhhcHMsIHRoaXMgaW5kaWNhdGVzIHRoZSBmaXJzdCBlcGlkZW1pb2xvZ2ljYWwgeWVhciBzaW1pbGFyIHRvIGVwaXdlZWtzPyBUaGlzIHdhcyBpbXBhY3RpbmcgZGF0YSBtZXJnaW5nLCBzbyBpdCB3YXMgcmVjb21wdXRlZCB0byByZWZsZWN0IGNhbGVuZGFyIHllYXIgb2YgdGhlIHdlZWsgc3RhcnQgZGF0ZS4gVGhpcyB5ZWFyIHZhcmlhYmxlIHNob3VsZCBub3QgYmUgbmVlZGVkIGZvciBkb3duc3RyZWFtIGFuYWx5c2VzLCB0aG91Z2gsIGJ1dCBpdCB3YXMgdXNlZCBmb3Igc2V0dGluZyB1cCBkYXRhIG1lcmdlcyBhbmQgZXhhbWluaW5nIGltcGxpY2l0bHkgbWlzc2luZyBkYXRhLiANCg0KRGF0YSBhcmUgbWlzc2luZyBmb3IgRmxvcmlkYSAyMDEwLTExIHNlYXNvbiBjb21wbGV0ZWx5LCBQdWVydG8gUmljbyAyMDEwLTExLCAyMDExLTEyIHNlYXNvbnMgY29tcGxldGVseSBhbmQgbmVhcmx5IGNvbXBsZXRlbHkgZm9yIDIwMTItMTMgc2Vhc29uLiBUaGUgZGF0YXNldCBpcyB0cnVuY2F0ZWQgYXQgZW5kIG9mIE1heSBmb3IgdGhlIDIwMjAtMjEgc2Vhc29uIGZvciBhbGwgbG9jYXRpb25zOyBsaWtlbHkgYXJ0aWZhY3Qgb2YgZG93bmxvYWQgdGltZS4gU28sIHdlIHdpbGwgaW5jbHVkZSBkYXRhIHNwYW5uaW5nIGZyb20gMjAxMS0xMiBzZWFzb24gdG8gMjAxOS0yMCBzZWFzb24sIHdoaWNoIG1hdGNoZXMgdGhlIGNvbW11dGluZyBkYXRhLiBUZW50YXRpdmVseSwgUFIgd2lsbCBiZSBpbmNsdWRlZCwgYnV0IEkgd2lsbCBuZWVkIHRvIGNvbnNpZGVyIGltcGFjdCBvbiBhbmFseXNlcy4gDQoNClF1aWNrIGV4cGxvcmF0aW9uIG9mIHRoZSBkaXN0cmlidXRpb25zIG9mIHRoZSBwcm9wb3J0aW9uIG9mIGN1bXVsYXRpdmUgSUxJIChwKSBmb3IgZWFjaCB3ZWVrIGZvciBlYWNoIGxvY2F0aW9uIGFuZCB3aGF0IEkgYW0gY2FsbGluZyBhbiBlcGlkZW1pYyBpbnRlbnNpdHkgdW5pdCAoZWkudW5pdCkgKHAqbG9nKHApKSBpbmRpY2F0ZXMgdGhlIGludHJpbnNpYyBib3VuZHMgYXQgemVybyBmb3IgYm90aCBhbmQgYXQgb25lIGZvciB0aGUgcHJvcG9ydGlvbnMuIFNvLCBpbiBkb3duc3RyZWFtIGFuYWx5c2VzIGl0IG1heSBiZSBwcmVmZXJhYmxlIHRvIHVzZSB0aGUgZWkgdW5pdCBvdmVyIHRoZSBwcm9wb3J0aW9uLiBUYWtpbmcgdGhlIGFic29sdXRlIHZhbHVlIG9mIHRoZSBlaSB1bml0IGZsaXBzIHRoZSBkaXJlY3Rpb24gYWJvdXQgemVybyBzbyB0aGF0IHZhbHVlcyBhcmUgbm9uLW5lZ2F0aXZlIGFuZCBoYXZlIGEgc2ltaWxhciBkaXJlY3Rpb25hbCBpbnRlcnByZXRhdGlvbiB0byB0aGUgYWdncmVnYXRlIGVwaWRlbWljIGludGVuc2l0eTsgdGhhdCBpcywgbGFyZ2VyIHZhbHVlcyBjb3JyZXNwb25kIHRvIG1vcmUgZXh0cmVtZSAvIGltYmFsYW5jZWQgdmFsdWVzICg/Pz8pLiBCdXQsIEkgYW0gdW5zdXJlIG9mIHRoaXMgYmVpbmcgdGhlIGJlc3Qgd2F5IGZvciBzYWtlIG9mIGludGVycHJldGF0aW9uLiBJdCBtYXkgYmUgYSBsaXR0bGUgd2Fja3kgdG8gdHJlYXQgdGhlIHNtYWxsIGFuZCBsYXJnZSB2YWx1ZXMgc2ltaWxhcmx5LCBhbmQgbWF5YmUgdGhlIHByb3BvcnRpb25zIGFyZSBwcmVmZXJhYmxlLiANCg0KDQojIyMgUG9wdWxhdGlvbg0KDQpUaGUgcG9wdWxhdGlvbiBlc3RpbWF0ZXMgZGF0YSByb3VnaGx5IGNvcnJlc3BvbmQgdG8gdGhlIHBvcHVsYXRpb24gb2YgYSBsb2NhdGlvbiBhdCB0aGUgbWlkcG9pbnQgKDEgSnVseSkgb2YgdGhlIGdpdmVuIHllYXIuIFRoaXMgZG9lcyBub3QgZGlyZWN0bHkgbWF0Y2ggdXAgdG8gdGhlIElMSSBkYXRhIHRoYXQgaGF2ZSBiZWVuIHRyYW5zZm9ybWVkIHJlbGF0aXZlIHRvIHNlYXNvbmFsIHRvdGFscyB3aGVyZSB0aGUgc2Vhc29uIGlzIHNldCB0byBiZWdpbiBhdCBlcGl3ZWVrIDQwIG9mIG9uZSB5ZWFyIGFuZCBlbmRzIGF0IGVwaXdlZWsgMzkgb2YgdGhlIGZvbGxvd2luZyB5ZWFyLiBOb3RlIHRoYXQgdGhpcyBpcyBtb3JlIG9mIGEgeWVhcmx5IGRlc2lnbmF0aW9uIHJhdGhlciB0aGFuIGEgdHJ1ZSBpbmZsdWVuemEgc2Vhc29uOyBhIHRlY2huaWNhbCBmbHUgc2Vhc29uIG1heSBleGNsdWRlIHN1bW1lciBtb250aHMsIE1heS1pc2ggdGhyb3VnaCBTZXB0ZW1iZXItaXNoLiAgDQogIA0KVG8gYmV0dGVyIGFsaWduIHRoZSB0aGUgcG9wdWxhdGlvbiBlc3RpbWF0ZSBmb3IgYSBsb2NhdGlvbiBhdCB0aGUgbWlkcG9pbnQgb2YgYSBnaXZlbiB5ZWFyIHRvIGEgc3BlY2lmaWMgaW5mbHVlbnphIHNlYXNvbiwgaXQgbWF5IGJlIHVzZWZ1bCB0byBjYWxjdWxhdGUgc2ltcGxlIGF2ZXJhZ2VzIGJldHdlZW4gc2VxdWVudGlhbCB5ZWFycy4gRm9yIGV4YW1wbGUsIGlmIEkgdGFrZSB0aGUgMjAxMSBwb3B1bGF0aW9uIGVzdGltYXRlIChKdWx5IDEpIGFuZCBhdmVyYWdlIGl0IHdpdGggdGhlIDIwMTIgcG9wdWxhdGlvbiBlc3RpbWF0ZSAoSnVseSAxKSwgdGhlbiB0aGlzIG1heSBiZXR0ZXIgY29ycmVzcG9uZCB0byB0aGUgcG9wdWxhdGlvbiBzaXplIGluIERlY2VtYmVyIDIwMTEgLyBKYW51YXJ5IDIwMTIsIGNsb3NlciB0byB0aGUgdGltaW5nIG9mIHRoZSBwZWFrcyBvZiBlcGlkZW1pY3MuIA0KDQpUaGUgZm9sbG93aW5nIHNjcmlwdCBkb2VzIHRoYXQ6DQoNCmBgYHtyfQ0Kc291cmNlKCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19EYXRhX1BvcHVsYXRpb25fQWxpZ25fU2Vhc29uLlIiLCBlY2hvPVRSVUUpDQpgYGANCg0KDQoNCg0KIyMjIENvbW11dGluZw0KDQpUaGUgY29tbXV0aW5nIGRhdGEgY29udGFpbnMgaW5mb3JtYXRpb24gYWJvdXQgdGhlIGNvbW11dGVyIGZsb3cgdm9sdW1lIG9yIGZsdXggYmV0d2VlbiB0d28gbG9jYXRpb25zLiBJbiB0aGlzIHdheSwgaXQgaXQgcmVhbGx5IGRhdGEgb24gdGhlIGNvbm5lY3RlZG5lc3MgLyBhZGphY2VuY3kgb2YgbG9jYXRpb24gcGFpcnMsIGEgbmV0d29yay4gSW4gdGhpcyBmb3JtYXQsIGl0IGlzIG5vdCBlYXNpbHkgY29tYmluZWQgb3IgYWxpZ25lZCB3aXRoIHRoZSBJTEkgZGF0YS4gU3VyZSB0aGVyZSBtYXkgYmUgc29tZSBuZXR3b3JrIGFuYWx5c2VzIG9yIGNvbXBhcnRtZW50YWwgbW9kZWxpbmcgYW5hbHlzZXMgdGhhdCB3ZSBjb3VsZCBwZXJmb3JtIHRvIHVzZSB0aGUgZGF0YSBpbiBpdHMgb3JpZ2luYWwgZm9ybWF0LCBidXQsIGhlcmUsIEkgb25seSB3YW50IHRvIGRvIHNvbWUgc2ltcGxlIGFuYWx5c2VzIHJlbGF0aW5nIHRoZSBJTEkgZXBpZGVtaWMgaW50ZW5zaXR5LiBBIHJ1ZGltZW50YXJ5IGFwcHJvYWNoIGNvdWxkIGJlIHRvIGluY2x1ZGUgYWxsIG9yaWdpbnMgYW5kIGRlc3RpbmF0aW9ucyBhbmQgdGhlaXIgZmxvd3MgYXMgc2VwYXJhdGUgdmFyaWFibGVzIG9yIGZlYXR1cmVzLCBlLmcuLCBudW1iZXIgb2YgaW5jb21pbmcgY29tbXV0ZXJzIGZyb20gR2VvcmdpYS4gSG93ZXZlciwgdGhpcyBtYXkgcHJlc2VudCBhIGZldyBwcm9ibGVtczogKDEpIHRoZXJlIHdpbGwgYmUgbWFueSBpbXBsaWNpdCAiemVyb3MiIHdoZXJlIGxvY2F0aW9uIHBhaXJzIGhhdmUgbm8gY29tbXV0ZXJzOyAoMikgdGhlcmUgd2lsbCBiZSBtYW55IG1hbnkgdmFyaWFibGVzICg1MiBpbmNvbWluZyArIDUyIG91dGdvaW5nPyk7ICgzKSB0aGlzIHdvdWxkIG5vdCBhbGxvdyBmb3IgYSBtb3JlICJnZW5lcmFsaXplZCIgaW50ZXJwcmV0YXRpb24gYXMgYWxsIGZlYXR1cmVzIGFyZSBzcGVjaWZpYyB0byBzaW5nbGUgbG9jYXRpb25zLiBTbywgYW5vdGhlciBhcHByb2FjaCBpcyBkZXNpcmFibGUuIFRoZSBzaW1wbGVzdCB3YXkgdGhhdCBJIGNhbiB0aGluayB0byBpbml0aWFsbHkgYXBwcm9hY2ggdGhpcyBhbmFseXNpcyBpcyB0byBhZ2dyZWdhdGUgdGhlIGNvbW11dGVyIGZsb3dzIGluIHRocmVlIHdheXM6ICgxKSBpbnRlcm5hbCBjb21tdXRlcyB3aGVyZSBvcmlnaW5zIGFuZCBkZXN0aW5hdGlvbnMgYXJlIHRoZSBzYW1lOyAoMikgYWxsIGluY29taW5nIC8gaW5mbG93IGNvbW11dGVycyBmb3IgYSBzcGVjaWZpYyBkZXN0aW5hdGlvbiBsb2NhdGlvbjsgKDMpIGFsbCBvdXRnb2luZyAvIG91dGZsb3cgY29tbXV0ZXJzIGZvciBhIHNwZWNpZmljIG9yaWdpbiBsb2NhdGlvbi4gSW4gdGhpcyB3YXksIHdlIHdpbGwgaGF2ZSBmZWF0dXJlcyBjb3JyZXNwb25kaW5nIHRvIGxvY2FsIHBvcHVsYXRpb24gbWl4aW5nIChpbnRlcm5hbCksIHBvdGVudGlhbCBpbXBvcnRhdGlvbnMgKGluY29taW5nKSwgYW5kIHBvdGVudGlhbCAiZm9yZWlnbiIgZXhwb3N1cmVzIChvdXRnb2luZykuIFRoaXMgaXMgc3RpbGwgcmF0aGVyIHJ1ZGltZW50YXJ5LCBidXQgaXQgd2lsbCB3b3JrIGZvciB0aGlzIHByZWxpbWluYXJ5IGFuYWx5c2lzLiAgDQogIA0KT25lIGxhc3QgdGhpbmcgdG8gY29uc2lkZXIgaXMgdGhlIHNjYWxlIG9mIHRoZSBkYXRhLiBBcyBJIGFtIGhvcGluZyB0byBhbmFseXplIHRoaXMgZGF0YSBhbG9uZ3NpZGUgdGhlIHBvcHVsYXRpb24gc2l6ZSBkYXRhLCB0aGUgY291bnRzIG9mIGNvbW11dGVyIHZvbHVtZSBtYXkgYmUgdG9vIGNvcnJlbGF0ZWQgd2l0aCB0aGUgcG9wdWxhdGlvbiBzaXplOyB0aGF0IGlzLCBsYXJnZSBjb3VudHMgb2YgcG9wdWxhdGlvbiBzaXplIHdpbGwgY29ycmVzcG9uZCB0byBsYXJnZSBudW1iZXJzIG9mIGNvbW11dGVycy4gVG8gcmVtb3ZlIHRoaXMgcmVsYXRpb25zaGlwLCBJIG5lZWQgdG8gYWNjb3VudCBmb3IgdGhlIHBvcHVsYXRpb24gc2l6ZXMuIEFub3RoZXIgc2ltcGxlIGFwcHJvYWNoIG1heSBiZSB0byBjb21wdXRlIHRoZSBwcm9wb3J0aW9ucyBvZiBjb21tdXRlcnMgZm9yIGVhY2ggY2F0ZWdvcnkuIFRob3VnaCwgdGhpcyBtYXkgZm9yY2UgdXMgdG8gZHJvcCBvbmUgb2YgdGhlIHRocmVlIGNhdGVnb3JpZXMuIChpZGsgaG93IHRvIGJlc3QgZGVzY3JpYmUgdGhpcyBsb3NzIG9mIGEgZGVncmVlIG9mIGZyZWVkb20sIGxpbmVhciBjb21iaW5hdGlvbjsgaWYgdGhleSdyZSBub3QgaW50ZXJuYWwgb3Igb3V0Z29pbmcsIHRoZW4gdGhleSBtdXN0IGJlIGluY29taW5nPykgU28sIGFub3RoZXIgc2ltcGxlIGFwcHJvYWNoIGNvdWxkIGJlIHRvIGNhbGN1bGF0ZSB0aGUgcHJvcG9ydGlvbnMgb2YgY29tbXV0ZXJzIHRoYXQgYXJlIGluY29taW5nIChmb3JlaWduLCBiYWQgd29yZCBjaG9pY2UgYnV0IGl0IHdvcmtzKSBvciBvdXRnb2luZyAoZXhwYXRzLCBiYWQgd29yZCBjaG9pY2UgYnV0IGl0IHdvcmtzKS4gVGhlbiwgSSBjb3VsZCB0cmVhdCB0aGUgaW50ZXJuYWwgY29tbXV0ZXJzIGEgbGl0dGxlIGRpZmZlcmVudGx5LiBUaGlzIGlzIGEgbGl0dGxlIGNoYWxsZW5naW5nIHRvIGRlY2lkZSBvbi4gTXkgaW5pdGlhbCB0aG91Z2h0cyB3ZXJlIHRvIGp1c3QgdG8gY2FsY3VsYXRlIHRoZSBwcm9wb3J0aW9uIG9mIHRoZSB0b3RhbCBwb3B1bGF0aW9uIHRoYXQgaXMgYW4gaW50ZXJuYWwgY29tbXV0ZXIuIFBhcnQgb2YgbWUgd2FudHMgdG8gY29uc2lkZXIgdGhlIG51bWJlciBvZiBjb3VudGllcyBhcyB3ZWxsLCB0aG91Z2guIA0KDQpJIHdlbnQgYmFjayB0byB0aGUgb3JpZ2luYWwgcHJvY2Vzc2luZyBzY3JpcHQgd2hlcmUgdGhlIGRhdGEgd2VyZSBhZ2dyZWdhdGVkIHRvIHRoZSBzdGF0ZSBsZXZlbCBhbmQgY3JlYXRlZCBhIHZhcmlhYmxlIGNhdGVnb3JpemluZyB0aGUgZmxvdyB0eXBlIGFzIGVpdGhlciBpbnRyYWNvdW50eSwgaW50cmFzdGF0ZSAoYnV0IG5vdCBpbnRyYWNvdW50eSksIGludGVyc3RhdGUsIGFuZCBpbnRlcm5hdGlvbmFsLiBXaXRoIHRoaXMgbmV3IGxldmVsIG9mIGFnZ3JlZ2F0aW9uLCBJIGNhbiBub3cgY2FsY3VsYXRlIHRoZSBwcm9wb3J0aW9ucyBvZiB3b3JrZXJzIGluIGEgZm9jYWwgcmVzaWRlbnQgbG9jYXRpb24gd2hvIGFyZSAoMSkgb3V0Z29pbmcgKGV4cGF0cyksICgyKSBpbmNvbWluZyAoZm9yZWlnbiksIGFuZCAoMykgY29tbXV0aW5nIHdpdGhpbiB0aGUgc3RhdGUgYmV0d2VlbiBjb3VudGllcy4gSSByZWFsaXplZCB0aGF0IGl0IG1heSBiZSBwcmVmZXJhYmxlIHRvIGV4Y2x1ZGUgdGhlIHdvcmtlcnMgd2hvIHdvcmsgaW4gdGhlIHNhbWUgY291bnR5IGFzIHRoZXkgcmVzaWRlIGFuZCBoYXZpbmcgYW4gYWRkaXRpb25hbCBjYXRlZ29yeSB3b3VsZCBhbGxvdyBtZSB0byB1c2UgdGhlIHNpbXBsZSBwcm9wb3J0aW9ucy4gVGhvdWdoLCB0aGlzIG1heSBpbnRyb2R1Y2UgYSBiaWFzIGFjY29yZGluZyB0byB0aGUgbnVtYmVyIG9mIGNvdW50aWVzIGFuZCB0aGVpciByZWxhdGl2ZSBzaXplIChFYXN0ZXJuIFVTIGhhcyBtb3JlIGFuZCBzbWFsbGVyIGNvdW50aWVzIHRoYW4gV2VzdGVybiBVUykuIEknbSBqdXN0IGdvaW5nIHRvIHJvY2sgd2l0aCB0aGlzIGFzIGlzIGZvciBub3cgYW5kIHRoaW5rIG1vcmUgb24gaG93IHRvIGNvbnRyb2wgbGF0ZXIgKG1heWJlIHNvbWVob3cgdGFrZSB0aGUgZGlzdGFuY2Ugb2YgdGhlIGZsb3cgaW50byBjb25zaWRlcmF0aW9uKS4NCiAgDQpUaGUgZm9sbG93aW5nIHNjcmlwdCBhZ2dyZWdhdGVzIHRoZSBjb21tdXRpbmcgZGF0YTogIA0KDQpgYGB7cn0NCnNvdXJjZSgiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9Qb3B1bGF0aW9uX0FsaWduX1NlYXNvbi5SIiwgZWNobz1UUlVFKQ0KYGBgDQoNCg0KDQpNYXliZSBpbiB0aGUgZnV0dXJlLCBJIGNhbiBicmlkZ2UgdGhlIGdhcCBiZXR3ZWVuIHRoZSB0d28gYWZvcmVtZW50aW9uZWQgYXBwcm9hY2hlcywgc3VjaCBhcyB3aXRoIGZlYXR1cmVzIGNvcnJlc3BvbmRpbmcgdG8gdGhlIHNwZWNpZmljIGZsb3dzIHdpdGhpbiBhbmQgYW1vbmcgZGlmZmVyZW50IHJlZ2lvbnMuIA0KDQoNCiMjIEZpbmFsaXplIERhdGFzZXQNCg0KVGhlIGZvbGxvd2luZyBzY3JpcHQgbWVyZ2VzIHRoZSBlcGlkZW1pYyBpbnRlbnNpdHkgZGF0YXNldCwgdGhlIHBvcHVsYXRpb24gZGF0YXNldCwgYW5kIHRoZSBjb21tdXRpbmcgZGF0YXNldC4gQWxzbywgYWxsIHRocmVlIHNlcGFyYXRlIGFuZCB0aGUgbmV3bHkgbWVyZ2VkIGRhdGFzZXQgYXJlIHBhY2thZ2VkIChzYXZlZCkgdG9nZXRoZXIuIA0KDQpgYGB7cn0NCnNvdXJjZSgiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9GaW5hbF9EYXRhc2V0LlIiLCBlY2hvPVRSVUUpDQpgYGANCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KIyBQcm9qZWN0IE92ZXJ2aWV3DQoNCiMjIERvY3VtZW50IE92ZXJ2aWV3DQoNCg0KDQojIE9iamVjdGl2ZQ0KDQoNCiogVG8gY29tcGFyZSBjbHVzdGVyaW5nIHBhdHRlcm5zIG9mIElMSSB0byB0aG9zZSBvZiBDT1ZJRC0xOQ0KDQoNCg0KIyBBcHByb2FjaA0KDQojIyBEYXRhIFByb2Nlc3NpbmcgLyBJbml0aWFsIENsZWFuaW5nDQoNCiMjIyBJbmNpZGVuY2UgRGF0YQ0KDQojIyMjIEluZmx1ZW56YS1saWtlIElsbG5lc3MNCg0KSUxJIGRhdGEgZnJvbSBGbHVWaWV3IGFuZCBGbG9yaWRhIERlcGFydG1lbnQgb2YgUHVibGljIEhlYWx0aCB3ZXJlIHByb2Nlc3NlZCB1c2luZyBmb2xsb3dpbmcgc2NyaXB0Og0KDQpgYGB7cn0NCnNvdXJjZSgiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9JTEkuUiIpDQpgYGANCg0KDQpEYXRhIHdlcmUgc3RvcmVkIGluIGEgZGF0YWZyYW1lIHdpdGggZWFjaCByb3cgY29ycmVzcG9uZGluZyB0byBhIHNwZWNpZmljIGxvY2F0aW9uIChzdGF0ZSkgZHVyaW5nIGEgc3BlY2lmaWMgd2VlayAoZXBpIHdlZWsgYW5kIGRhdGUpIHdpdGggdGhlIHJlcG9ydGVkIGNvdW50cyBvZiBJTEkgYW5kIHRvdGFsIHBhdGllbnRzIGZvciB0aGF0IGxvY2F0aW9uIGR1cmluZyB0aGF0IHdlZWsuIA0KDQpEYXRhIHdlcmUgb3JpZ2luYWxseSBzcGxpdCBmb3IgTmV3IFlvcmsgQ2l0eSBhbmQgTmV3IFlvcms7IEkgc3VtbWVkIHRob3NlIHRvIGEgc2luZ2xlIGxvY2F0aW9uLiBBbHNvLCBkYXRhIGZyb20gRmx1VmlldyBhcmUgbWlzc2luZyBGbG9yaWRhIGRhdGEgY29tcGxldGVseSwgYnV0IExEIHdhcyBhYmxlIHRvIG9idGFpbiBkYXRhIGZyb20gdGhlIEZsb3JpZGEgRGVwYXJ0bWVudCBvZiBQdWJsaWMgSGVhbHRoLiBUaGUgZGF0YSBncmVhdGx5IG92ZXJsYXAsIGJ1dCB0aGUgRmxvcmlkYSBkYXRhIHNlZW1zIHRvIGJlIG1pc3Npbmcgc29tZSBvZiB0aGUgZWFybGllc3QgYW5kIGxhdGVzdCBkYXRhIChlZmZlY3RpdmVseSB0cmltbWluZyB0aGUgZGF0YXNldCBmcm9tIGJvdGggdGltZXBvaW50cyBlbmRzKS4gDQoNCg0KDQoNCiMjIyMgQ09WSUQtMTkNCg0KQ09WSUQtMTkgY2FzZSBkYXRhIHdhcyBkb3dubG9hZGVkIGZyb20gW0NEQ10oaHR0cHM6Ly9kYXRhLmNkYy5nb3YvQ2FzZS1TdXJ2ZWlsbGFuY2UvVW5pdGVkLVN0YXRlcy1DT1ZJRC0xOS1DYXNlcy1hbmQtRGVhdGhzLWJ5LVN0YXRlLW8vOW1mcS1jYjM2KSBhbmQgcHJvY2Vzc2VkIHNpbWlsYXJseSB0byBJTEkuIFRoZSBleGNlcHRpb24gYmVpbmcgdGhhdCB0aGUgaW5jaWRlbnQgY2FzZSBjb3VudHMgbmVlZGVkIHNvbWUgYWRqdXN0bWVudCBhcyBzZXZlcmFsIHdlcmUgbmVnYXRpdmU7IHByZXN1bWFibHksIHRoaXMgaXMgYW4gYXJ0aWZhY3Qgb2YgdGhlIGNhbGN1bGF0aW9uIG9mIGluY2lkZW5jZSBmcm9tIGN1bXVsYXRpdmUgY2FzZSBjb3VudHMgKGUuZy4sIHRvZGF5J3MgaW5jaWRlbnQgY2FzZXMgPSB0b2RheSdzIGN1bXVsYXRpdmUgLSB5ZXN0ZXJkYXkncyBjdW11bGF0aXZlKSB3aGljaCBtYXkgYmUgYWRqdXN0ZWQgcG9zdC1ob2MgZm9sbG93aW5nIGNhc2UgY29uZmlybWF0aW9ucy4gU28sIHRoZSBkYXRlcyB3aXRoIG5lZ2F0aXZlIGNhc2UgY291bnRzIGZvciBgbmV3X2Nhc2VzYCB3ZXJlIHNpbXBseSBpbXB1dGVkOiBuZWdhdGl2ZSB2YWx1ZXMgd2VyZSBmb3JjZWQgbWlzc2luZywgbWlzc2luZyB2YWx1ZXMgd2VyZSBpbnRlcnBvbGF0ZWQgdXNpbmcgdmFsdWVzIGF0IGRhdGVzICstIDEgKGkuZS4sIHRvZGF5J3MgbmV3IGNhc2VzID0gKHllc3RlcmRheXMrdG9tb3Jyb3dzKS8yKSwgaWYgdGhhdCBpcyBub3QgcG9zc2libGUgZHVlIHRvIGNvbnNlY3V0aXZlIG1pc3NpbmdzIChpLmUuLCBuZWdhdGl2ZXMpIHRoZW4gdGhlIHZhbHVlcyBhcmUgc2V0IGF0IHplcm8uIFBvc3QtcHJvY2Vzc2luZyBhbmQgYW5hbHlzaXMgb2YgdGhpcyB0eXBlIG9mIGRhdGEgY291bGQgYmUgdXNlZnVsIHRvIGxvb2sgaW50byBsYXRlci4gDQoNCmBgYHtyfQ0Kc291cmNlKCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19EYXRhX0NPVklELlIiKQ0KYGBgDQoNCg0KDQoNCg0KDQoNCiMjIyBTcGF0aWFsIERhdGENCg0KTmV4dCwgd2UgcHJvY2VzcyBzb21lIHNwYXRpYWwgZGF0YTogc2hhcGVmaWxlcyBmb3IgVVMgY291bnRpZXMgYW5kIHN0YXRlcywgY29vcmRpbmF0ZXMgZm9yIHBvcHVsYXRpb24gY2VudGVycyBmb3IgY291bnRpZXMgYW5kIHN0YXRlcywgYW5kIGEgcmVsYXRpb25hbCAvIGxvb2t1cCB0YWJsZSBmb3IgVVMgYWRtaW5pc3RyYXRpdmUgcmVnaW9ucyBmb3IgdGhlIGNlbnN1cyBhbmQgSGVhbHRoIGFuZCBIdW1hbiBTZXJ2aWNlcyAoSEhTKS4gDQoNCmBgYHtyfQ0Kc291cmNlKCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19EYXRhX1NwYXRpYWwuUiIsIGVjaG8gPSBUKQ0KYGBgDQoNCg0KDQojIyMgTW9iaWxpdHkgRGF0YQ0KDQpXb3JrZXIgY29tbXV0aW5nIGZsb3dzIGZyb20gdGhlIEFtZXJpY2FuIENvbW11bml0eSBTdXJ2ZXkgaXMgZG93bmxvYWRlZCBhcyBhbiBleGNlbCBzcHJlYWRzaGVldCwgdGhvdWdoIG5vdCBpbiBhIHRpZHkgZGF0YSBmb3JtYXQgKGUuZy4sIHRoZXJlIGlzIGV4dHJhIGZsdWZmIGF0IHRoZSB0b3AgYW5kIGJvdHRvbSBvZiB0aGUgZXhjZWwgdGFibGUpLiBGb3Igc29tZSByZWFzb24sIHRoZXJlIHdlcmUgcHJvYmxlbXMgcmVhZGluZyBpbiB0aGUgZmlsZSBhcyBkb3dubG9hZGVkIGV2ZW4gd2hlbiB1c2luZyBza2lwIG9yIHJhbmdlIGFyZ3VtZW50cy4gU28sIHdlIGp1c3QgbWFudWFsbHkgZGVsZXRlZCB0aGUgZXh0cmEgZmx1ZmYgYW5kIHNhdmVkIGFzIGEgc2VwYXJhdGUgZmlsZS4gVGhlIHByb2Nlc3Mgc2NyaXB0IGlzIHNpbXBsZSBlbm91Z2ggYXMgaXQganVzdCBsb2FkcyB0aGUgZGF0YSwgY29udmVydHMgc29tZSBvZiB0aGUgdmFyaWFibGUgdHlwZXMgdG8gY2hhcmFjdGVyIG9yIGZhY3RvciBvciBudW1lcmljLCBhbmQgdGhlbiBzYXZlcyBhbiAucmRzIGZpbGUuIFRoZSBzY3JpcHQgaXMgc291cmNlZCB1c2luZyB0aGUgZm9sbG93aW5nIGNvZGU6DQoNCmBgYHtyfQ0Kc291cmNlKCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19EYXRhX0FDUy5SIiwgZWNobyA9IFQpDQpgYGANCg0KVGhlIEFDUyBkYXRhIGVzc2VudGlhbGx5IGNvbnRhaW4gZm91ciBtYWluIHZhcmlhYmxlczogYSBsb2NhdGlvbiBvZiByZXNpZGVuY2UgKGF0IHRoZSBzY2FsZSBvZiBjb3VudHkpLCBhIGxvY2F0aW9uIG9mIHdvcmssIGEgcG9pbnQgZXN0aW1hdGUgb2YgdGhlIG51bWJlciBvZiB3b3JrZXJzIGNvbW11dGluZyBiZXR3ZWVuIHRoZSB0d28gbG9jYXRpb25zLCBhbmQgYW4gZXN0aW1hdGUgb2YgdW5jZXJ0YWludHkgKGkuZS4sIG1hcmdpbiBvZiBlcnJvcikgZm9yIHRoZSBwb2ludCBlc3RpbWF0ZS4gRm9yIG5vdywgd2Ugd2lsbCBmb2N1cyBvbiB0aGUgbG9jYXRpb25zIGFuZCB0aGUgcG9pbnQgZXN0aW1hdGUgYW5kIHJldHVybiB0byB0aGUgdW5jZXJ0YWludHkgbGF0ZXIgZm9yIHNlbnNpdGl2aXR5IGFuYWx5c2VzLiANCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQojIyBEYXRhIEVuZ2luZWVyaW5nDQoNCiMjIyBJbmNpZGVuY2UNCg0KIyMjIyBJTEkgDQoNCkZpcnN0LCB3ZSB3aWxsIG5lZWQgdG8gZmluZCB0aGUgc2Vhc29ucyBmb3Igd2hpY2ggd2UgaGF2ZSBjb21wbGV0ZSBkYXRhLiBUaGVuIGZvciBlYWNoIHNlYXNvbiBhbmQgZWFjaCBsb2NhdGlvbiwgd2UgbmVlZCB0byBzdW0gdGhlIGNvdW50cywgYW5kIHN1YnNlcXVlbnRseSB1c2UgdGhlbSB0byBjYWxjdWxhdGUgYSBwcm9wb3J0aW9uIHNpbWlsYXIgdG8gZXBpZGVtaWMgaW50ZW5zaXR5IGNhbGN1bGF0aW9ucyBvciBzaGFubm9uIGVudHJvcHkgYWNyb3NzIHRoZSB3ZWVrcyBvZiBhbiBlcGlkZW1pYyBzZWFzb24uIA0KDQpgYGB7cn0NCnNvdXJjZSgiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9JTElfQ3VydmVfUHJvcG9ydGlvbnMuUiIsIGVjaG89VFJVRSkNCmBgYA0KDQojIyMjIENPVklELTE5DQoNCk5vIGZ1cnRoZXIgY2xlYW5pbmcgLyB0cmFuc2Zvcm1hdGlvbiBuZWVkZWQuDQoNCg0KIyMjIFNwYXRpYWwgRGF0YQ0KDQpObyBmdXJ0aGVyIGNsZWFuaW5nIC8gdHJhbnNmb3JtYXRpb24gbmVlZGVkLg0KDQoNCiMjIyBNb2JpbGl0eSBEYXRhDQoNCiMjIyMgQ29tbXV0aW5nDQoNCkp1c3QgZ290IHRvIHVzZSB0aGUgaWdyYXBoIHBhY2thZ2UgdG8gc2V0IHVwIHRoZSBSIG9iamVjdCBmcm9tIHRoZSBvcmlnaW4tZGVzdGluYXRpb24gZm9ybWF0IGFmdGVyIHN1bW1pbmcgdG8gdGhlIHN0YXRlIGxldmVsLiANCg0KDQpgYGB7cn0NCnNvdXJjZSgiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9BQ1NfTmV0d29yay5SIiwgZWNobyA9IFRSVUUpDQpgYGANCg0KIyMjIyMgR3Jhdml0eSBBcHByb3hpbWF0aW9uDQoNClRoZSBjb21tdXRpbmcgZGF0YSB3ZXJlIHVzZWQgdG8gZml0IGEgZ3Jhdml0eSBtb2RlbCB0byB0aGUgZGF0YSAoYSBjb21tb24gYXBwcm94aW1hdGlvbiB1c2VkIGluIHNpbXVsYXRpb24gbW9kZWxpbmcsIGluIGxpZXUgb2YgY29tbXV0aW5nIGRhdGEpLiBMb2cgbGluZWFyIG1vZGVscyB3ZXJlIGZpdCB0byB0aGUgZGF0YSBzaW1pbGFyIHRvIFZpYm91ZCBldCBhbCAoMjAwNikuIFRoYXQgaXMsIEkgZXN0aW1hdGVkIGdyYXZpdHkgYXMNCg0KJCRsb2coR3Jhdml0eSkgPSBcYmV0YV8wICsgXGJldGFfMWxvZyhOX3tvcmlnaW59KSArIFxiZXRhXzJsb2coTl97ZGVzdGluYXRpb259KSArIFxiZXRhXzNsb2coZGlzdGFuY2Vfe29yaWdpbi1kZXN0aW5hdGlvbn0pLCQkDQoNCndoZXJlICRcYmV0YV8wJCByZXByZXNlbnRzIHRoZSBwcm9wb3J0aW9uYWxpdHkgY29uc3RhbnQsICRcYmV0YV97MSwyfSQgYXJlIHRoZSBtYXNzIGV4cG9uZW50cyBmb3IgdGhlIG9yaWdpbiBhbmQgZGVzdGluYXRpb24gcG9wdWxhdGlvbiBzaXplcywgcmVzcGVjdGl2ZWx5LCBhbmQgJFxiZXRhXzMkIGlzIHRoZSBkaXN0YW5jZSBleHBvbmVudC4gQWRkaXRpb25hbGx5LCBhbiBpbmRpY2F0b3IgdmFyaWFibGUgZm9yIGEgZGlzdGFuY2UgdGhyZXNob2xkIHdhcyBpbmNsdWRlZCBhcyBhbiBpbnRlcmFjdGlvbiB0ZXJtIHdpdGggYWxsIG90aGVyIHRlcm1zIHRvIGVzdGltYXRlIHRoZSBwYXJhbWV0ZXJzIHNlcGFyYXRlbHkgZm9yIHNob3J0ZXIgYW5kIGxvbmdlciBkaXN0YW5jZXMsIGFzIGRpc3Rpbmd1aXNoZWQgYnkgdGhlIGRpc3RhbmNlIHRocmVzaG9sZC4gVGhlIGRpc3RhbmNlIHRocmVzaG9sZCB3YXMgZXN0aW1hdGVkIHRvIG1pbmltaXplIHRoZSBzdW0gb2Ygc3F1YXJlZCBlcnJvcnMgZnJvbSB0aGUgbW9kZWwgZml0cywgdGFuZ2VudGlhbGx5IHRvIHRoZSBvdGhlciBwYXJhbWV0ZXJzLiBUaGUgZm9sbG93aW5nIHNjcmlwdCBlc3RpbWF0ZXMgdGhlIGdyYXZpdHkgYW5kIGNyZWF0ZXMgYSBuZXR3b3JrIHRvIHJlcHJlc2VudCBpdDogDQoNCmBgYHtyfQ0Kc291cmNlKCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19EYXRhX0FDUy1HcmF2aXR5X05ldHdvcmsuUiIpDQpgYGANCg0KDQojIyMjIyBSYWRpYXRpb24gTW9kZWwNCg0KVGhlIGZvcm11bGF0aW9uIGZvciB0aGUgcmFkaWF0aW9uIG1vZGVsIG9mIGh1bWFuIG1vYmlsaXR5IGFzIGdpdmVuIGJ5IFNpbWluaSBldCBhbCAoMjAxMikgd2FzIHVzZWQgdG8gY3JlYXRlIGFub3RoZXIgbmV0d29yay4gVGhpcyBmb3JtdWxhdGlvbiBpcyBub24tcGFyYW1ldGVyaWMgYW5kIG9ubHkgdXNlcyBwb3B1bGF0aW9ucyBzaXplcyBhbmQgZGlzdGFuY2VzIGluIGl0cyBhcHByb3hpbWF0aW9uIG9mIGNvbW11dGVyIHZvbHVtZS4gDQoNClRoZSBmb2xsb3dpbmcgc2NyaXB0IGVzdGltYXRlcyB0aGUgY29tbXV0ZXIgdm9sdW1lIHVzaW5nIHRoZSByYWRpYXRpb24gbW9kZWwgYW5kIGdlbmVyYXRlcyBhIG5ldHdvcmsgb2JqZWN0Og0KDQpgYGB7cn0NCnNvdXJjZSgiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9BQ1MtUmFkaWF0aW9uX05ldHdvcmsuUiIpDQpgYGANCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQojIyBEYXRhIE1hbmFnZW1lbnQgJiBBbmFseXNpcyBTZXR1cA0KDQoNCiMjIyBXcml0aW5nIFNhVFNjYW4gRGF0YSBJbnB1dCBGaWxlcw0KDQpOZXh0LCB3ZSBuZWVkIHRvIHdyaXRlIHRoZSBmaWxlcyBmb3IgaW5wdXQgaW4gU2FUU2Nhbi4gQmFzaWNhbGx5IGEgY29vcmRpbmF0ZXMgZmlsZSB1c2VkIGluIHNwYXRpYWwgc2NhbiBzdGF0aXN0aWNzIChsb2NhdGlvbi1sYWJlbCBsYXQgbG9uKSAoZ29pbmcgdG8gcmV2aXNpdCB0aGlzIGFzIHlvdSBjYW4gc3VwcGx5IGEgbmV0d29yayB3aXRoIHBhaXJ3aXNlIGRpc3RhbmNlcywgaW52ZXJ0ZWQgY29tbXV0ZXIgZmxvdz8pOyBhICJjYXNlIiBmaWxlLCBoZXJlIHRoZSBwcm9wb3J0aW9ucyBvZiBjdW11bGF0aXZlIGluY2lkZW5jZSAoc3F1YXJlIHJvb3QgdHJhbnNmb3JtZWQpIE9SICgiMiIgc3VmZml4KSB0aGUgc3ViLWNvbXBvbmVudCBvZiBzaGFubm9uIGVudHJvcHkgKHNxcnQocCpsb2cocCkpOyBhbHNvIHNxdWFyZSByb290IHRyYW5zZm9ybWVkIGFzIGluZGljYXRlZCkuIFRoZSBtZXRob2QgYXNzdW1lcyBhIG5vcm1hbGx5IGRpc3RyaWJ1dGVkIGNvbnRpbnVvdXMgdmFyaWFibGUuIA0KDQpUaGUgcHJvcG9ydGlvbnMnIGRpc3RyaWJ1dGlvbiBpcyBub3QgdHJ1bHkgbm9ybWFsICh0aGVvcmV0aWNhbGx5IG9yIHByYWN0aWNhbGx5KSwgYnV0IGEgc3F1YXJlIHJvb3QgdHJhbnNmb3JtYXRpb24gZG9lcyBzZWVtIHRvIGhlbHAgYXMgaW5zcGVjdGVkIGZyb20gYSBoaXN0b2dyYW0uIEkgbG9va2VkIGludG8gc29tZSBzcGF0aWFsIHNjYW4gc3RhdGlzdGljcyBmb3IgYmV0YSBkaXN0cmlidXRpb24gYnV0IHRoZXkgYXJlIHJlbGF0aXZlbHkgbmV3LCBub3QgYXZhaWxhYmxlIGluIGN1cnJlbnQgcGFja2FnZS4gTm9ybWFsIGFwcHJveGltYXRpb24gc2hvdWxkIHN1ZmZpY2UgZm9yIG91ciBwdXJwb3Nlcy4gQWRkaXRpb25hbGx5LCB1c2luZyB0aGUgd29yayBvZiBEYWx6aWVsIGV0IGFsIGFuZCB0aGVpciBmb3JtdWxhdGlvbiBvZiBlcGlkZW1pYyBpbnRlbnNpdHkgYmFzZWQgb2ZmIG9mIHNoYW5ub24gZW50cm9weSwgSSBjYWxjdWxhdGVkIGVhY2ggd2Vla3MgaW5kaXZpZHVhbCBjb250cmlidXRpb24gdG8gdGhlIHNoYW5ub24gZW50cm9weTsgdGhhdCBpcywgDQoNCiQkZW50cm9weX4gdW5pdF97aSxqfSA9ICgtMSpQcihJTElfe2ksan0vSUxJX3t0b3RhbCwgaSxqfSkqbG9nKFByKElMSV97aSxqfS9JTElfe3RvdGFsLCBpLGp9KSkpLiQkDQoNCg0KVGhlIHByb2dyYW1zIGFyZSBydW4gdXNpbmcgc3F1YXJlIHJvb3QgdHJhbnNmb3JtcyBvZiB0aGUgZW50cm9weSB1bml0cy4gDQoNCkluIGFkZGl0aW9uIHRvIGEgIm5vcm1hbGx5IiBkaXN0cmlidXRlZCAiY2FzZSIgY2hhcmFjdGVyaXN0aWMgKHByb3BvcnRpb25zIGN1bXVsYXRpdmUgSUxJIG9yIGVudHJvcHkgdW5pdCksIGVhY2ggdmFsdWUgbmVlZHMgYSB3ZWlnaHQgYXNzaWduZWQgdG8gaXQgc28gdGhhdCB0aGUgdW5kZXJseWluZyBsb2dpYy9yYXRpb25hbGUgLyB2YXJpYW5jZSBlc3RpbWF0aW9uIHVuZGVyc3RhbmRzIHRoYXQgdGhlIGdpdmVuIHZhbHVlIGlzIGFuICJhdmVyYWdlIiBmb3IgdGhlIGVudGlyZSByZWdpb24gKG9yIGRhdGEgc2FtcGxlKS4gSSBmb3VuZCBpbiB0aGUgaGVscCBkb2N1bWVudGF0aW9uIGZvciBzYXRzY2FuIHRoYXQgYSBwb3B1bGF0aW9uIGNhbiBiZSB1c2VkIGluc3RlYWQgb2YgYSB3ZWlnaHQuIFNvLCBhdCBmaXJzdCBJIHRob3VnaHQgdG8gdXNlIHRoZSBhbmFsb2cgZm9yIHByb3BvcnRpb24gb2YgY3VtdWxhdGl2ZSB0b3RhbCBwYXRpZW50cyAodGhlIHdlZWtseSBkZW5vbWluYXRvciBmb3IgSUxJIGRhdGEsIHNpbWlsYXJseSBwcm9jZXNzZWQgYXMgdGhlIHByb3BvcnRpb25zIG9mIGN1bXVsYXRpdmUgSUxJIGluY2lkZW5jZSkuIEhvd2V2ZXIsIEknbSBhbHNvIHRoaW5rIHRoYXQgaXQgbWF5IGJlIGJldHRlciB0byB1c2UgdGhlIGN1bXVsYXRpdmUgdG90YWwgcGF0aWVudHMgY291bnQgZm9yIGEgc2luZ2xlIGxvY2F0aW9uIHNlYXNvbiBmb3IgZWFjaCB3ZWVrIGluIHRoYXQgc2Vhc29uLiBCdXQgaW0gdG9ybi4gVmFyaWFuY2UgaW4gcHJvcG9ydGlvbiBvZiBjdW11bGF0aXZlIElMSSBtYXkgZGVwZW5kIG9uIC4uLiBwcm9wb3J0aW9uIG9mIG9ic2VydmVkIHBhdGllbnRzIGF0IHRoYXQgbG9jYXRpb24gZHVyaW5nIHRoYXQgd2Vlay4gSSBkb24ndCB0aGluayBpdCBzaG91bGQgYmUgdGhlIHJhdyBjb3VudHMgZm9yIGVpdGhlciBJTEkgb3IgdG90YWwgcGF0aWVudHMsIHRoZSB3aG9sZSBwcm9wb3J0aW9uIGNhbGN1bGF0aW9uIGlzIGEgd29yayBhcm91bmQgdG8ga25vd24gYmlhcy4gU28sIHdlJ2xsIGp1c3QgZ28gd2l0aCBwcm9wb3J0aW9uIGN1bXVsYXRpdmUgdG90YWwgcGF0aWVudHMgZm9yIG5vdy4gDQoNCg0KDQpDYXNlIGZpbGUgaGFzIChsb2NhdGlvbi1sYWJlbCB3ZWVrIHZhbHVlIHZhbHVlLXdlaWdodCkuIFNvLCBhbiBpbmRpdmlkdWFsIGNhc2UgZmlsZSBpcyB3cml0dGVuIGZvciBlYWNoIHdlZWs7IHRoZSBjb29yZGluYXRlcyBmaWxlIGlzIHNldCBvbmNlLiBUaGUgdGV4dCBmaWxlcyBhcmUgd3JpdHRlbiBpbiB0aGUgZm9sbG93aW5nIHNjcmlwdHM6DQoNCmBgYHtyfQ0KIyBzcXJ0KElMSSBwcm9wb3J0aW9uIG9mIGN1bXVsYXRpdmUgaW5jaWRlbmNlIHBlciB3ZWVrIHBlciBzdGF0ZSkNCiMgc2F0c2NhbiBub3JtYWwgZGlzdA0KIyAuL1NhVFNjYW4vaW5wdXQgb3V0cHV0DQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcmVwX0ZpbGVzX1NhVFNjYW5fSUxJX1NwYXRpYWwuUiIpDQojIHNxcnQoZXBpZGVtaWMgaW50ZW5zaXR5IHVuaXQpDQojICMgZWkgdW5pdCA9ICgoKHAgKiBsb2cocCkpKi0xKV4oLTEpIC0gYXJnbWluKS9hcmdtYXggfn5bMCwxXQ0KIyAuL1NhVFNjYW4vaW5wdXQyIG91dHB1dDINCnNvdXJjZSgiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3ByZXBfRmlsZXNfU2FUU2Nhbl9JTElfU3BhdGlhbDIuUiIpDQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcmVwX0ZpbGVzX1NhVFNjYW5fSUxJX0FDUy5SIikgIyBuZXR3b3JrIGluc3RlYWQgb2Ygc3BhdGlhbCBjb29yZGluYXRlcw0Kc291cmNlKCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJlcF9GaWxlc19TYVRTY2FuX0lMSV9HcmF2aXR5LlIiKSAjIG5ldHdvcmsgaW5zdGVhZCBvZiBzcGF0aWFsIGNvb3JkaW5hdGVzDQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcmVwX0ZpbGVzX1NhVFNjYW5fSUxJX1JhZGlhdGlvbi5SIikgIyBuZXR3b3JrIGluc3RlYWQgb2Ygc3BhdGlhbCBjb29yZGluYXRlcw0KDQojIGNvdmlkIGNhc2UgY291bnRzDQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcmVwX0ZpbGVzX1NhVFNjYW5fQ09WSURfU3BhdGlhbC5SIikNCnNvdXJjZSgiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3ByZXBfRmlsZXNfU2FUU2Nhbl9DT1ZJRF9BQ1MuUiIpDQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcmVwX0ZpbGVzX1NhVFNjYW5fQ09WSURfR3Jhdml0eS5SIikNCnNvdXJjZSgiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3ByZXBfRmlsZXNfU2FUU2Nhbl9DT1ZJRF9SYWRpYXRpb24uUiIpDQoNCmBgYA0KDQpOb3RlOiB0aGVzZSBhcmUgZHVwbGljYXRlZCBzY3JpcHRzIHRoYXQgaGF2ZSBhIHNpbmdsZSBzbGlnaHQgZGlmZmVyZW5jZSBpbiB0aGUgdmFyaWFibGVzIHVzZWQgd2hlbiB3cml0aW5nIHRoZSBjYXNlIGZpbGVzIGZvciBzYXRzY2FuLCBlaXRoZXIgc3FydCBwcm9wb3J0aW9uIG9yICgyKSBzcXJ0IGVudHJvcHkgdW5pdC4gVGhlIG5leHQgY291cGxlIHN0ZXBzIHdpbGwgYWxzbyBoYXZlIGR1cGxpY2F0ZWQgc2NyaXB0cyBmb3IgZWFjaCBvZiB0aGVzZS4gIA0KDQoNCiMjIyMgU2FUU2NhbiBQYXJhbWV0ZXJzDQoNCkludGVybWVkaWF0ZSBzdGVwLCBtYW51YWxseSBjcmVhdGUgYSBwYXJhbWV0ZXJzIGZpbGUgZm9yIHNhdHNjYW4gdG8gcmVhZC4gSSB0aGluayBgc2F0c2NhbmAgcGFja2FnZSBoZWxwcyB3aXRoIHRoYXQgYnV0IEkganVzdCB1c2VkIGd1aSB0byBzYXZlIGZpbGUgYWZ0ZXIgbWFudWFsbHkgc2VsZWN0aW5nIG9wdGlvbnMuIA0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCiMjIEFuYWx5c2lzIC0gU2FUU2NhbiANCg0KTmV4dCwgSSB3cm90ZSBzY3JpcHRzIHRvIHNlbmQgY29tbWFuZHMgdG8gdGhlIGNvbW1hbmQgcHJvbXB0IHRvIHJ1biB0aGUgc2F0c2NhbiBiYXRjaCBtb2RlIChleGVjdXRhYmxlIGZpbGU/IGlkayBob3cgdG8gc2F5KS4gVGhlIG9ubHkgb3B0aW9uIG5lZWRlZCB0aGVyZSBpcyBhIHBhcmFtZXRlcnMgZmlsZSBpbmRpY2F0aW5nIHRoZSBpbnB1dCBmaWxlcyAoY29vcmRpbmF0ZXMsIGNhc2VzLCAuLi4pIGFuZCB0aGUgbW9kZWwgb3B0aW9ucy4gDQoNClRoZSBzY3JpcHQgbG9vcHMgb3ZlciBsaXN0IG9mIGRhdGVzIGFuZCByZXBsYWNlcyB0aGUgaW5wdXQgZmlsZSBzdHJpbmcgaW4gdGhlIHBhcmFtZXRlcnMgZmlsZSB3aXRoIGVhY2ggcnVuLiBTbywgdGhlIHByb2dyYW0gZG9lcyBhIHB1cmVseSBzcGF0aWFsIGNsdXN0ZXJpbmcgYW5hbHlzaXMgYXNzdW1pbmcgYSBjb250aW51b3VzbHkgZGlzdHJpYnV0ZWQgb3V0Y29tZSB2YXJpYWJsZSAodGhlIHByb3BvcnRpb25zIG9mIGN1bXVsYXRpdmUgSUxJIG9ic2VydmVkIGF0IGEgZ2l2ZW4gbG9jYXRpb24gYXQgYSBnaXZlbiB3ZWVrOyBvciAoMikgdGhlIHNoYW5ub24gZW50cm9weSBjb21wb25lbnQpLiANCg0KSGVyZSBhcmUgdGhlIHNjcmlwdHM6DQoNCmBgYHtyfQ0KIyB3YXJuaW5nIHRoZXkgdGFrZSBhYm91dCA1MCBtaW51dGVzIHRvIGNvbXBsZXRlLCBlYWNoDQphbGwuc3RhcnQgPC0gU3lzLnRpbWUoKQ0KYWxsLnN0YXJ0DQoNCiMgc3FydCBwcm9wb3J0aW9uIGN1bXVsYXRpdmUgSUxJDQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMi1IZWxwZXItRnVuY3Rpb25zL3J1bl9Qcm9ncmFtX1NhVFNjYW5fSUxJX1NwYXRpYWwuUiIpDQojIHNxcnQgZW50cm9weSB1bml0DQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMi1IZWxwZXItRnVuY3Rpb25zL3J1bl9Qcm9ncmFtX1NhVFNjYW5fSUxJX1NwYXRpYWwyLlIiKQ0Kc291cmNlKCIuLzAyLVNjcmlwdHMvMDItSGVscGVyLUZ1bmN0aW9ucy9ydW5fUHJvZ3JhbV9TYVRTY2FuX0lMSV9BQ1MuUiIpICMgbmV0d29yaw0Kc291cmNlKCIuLzAyLVNjcmlwdHMvMDItSGVscGVyLUZ1bmN0aW9ucy9ydW5fUHJvZ3JhbV9TYVRTY2FuX0lMSV9HcmF2aXR5LlIiKQ0Kc291cmNlKCIuLzAyLVNjcmlwdHMvMDItSGVscGVyLUZ1bmN0aW9ucy9ydW5fUHJvZ3JhbV9TYVRTY2FuX0lMSV9SYWRpYXRpb24uUiIpDQoNCiMgY292aWQNCnNvdXJjZSgiLi8wMi1TY3JpcHRzLzAyLUhlbHBlci1GdW5jdGlvbnMvcnVuX1Byb2dyYW1fU2FUU2Nhbl9DT1ZJRF9TcGF0aWFsLlIiKQ0Kc291cmNlKCIuLzAyLVNjcmlwdHMvMDItSGVscGVyLUZ1bmN0aW9ucy9ydW5fUHJvZ3JhbV9TYVRTY2FuX0NPVklEX0FDUy5SIikNCnNvdXJjZSgiLi8wMi1TY3JpcHRzLzAyLUhlbHBlci1GdW5jdGlvbnMvcnVuX1Byb2dyYW1fU2FUU2Nhbl9DT1ZJRF9HcmF2aXR5LlIiKQ0Kc291cmNlKCIuLzAyLVNjcmlwdHMvMDItSGVscGVyLUZ1bmN0aW9ucy9ydW5fUHJvZ3JhbV9TYVRTY2FuX0NPVklEX1JhZGlhdGlvbi5SIikNCmFsbC5lbmQgPC0gU3lzLnRpbWUoKQ0KYWxsLmVuZA0KYGBgDQoNCkVhY2ggU2FUU2NhbiBydW4gZ2VuZXJhdGVzIGFuIG91dHB1dCB0ZXh0IGZpbGUgKGNhbiBkbyBzaGFwZWZpbGVzIGFuZCBtYXliZSBSIHBhY2thZ2UgcmVhZGFibGUgZmlsZXMgdG9vLCBidXQgd2hvIGxpa2VzIGVhc3kgaW50ZWdyYXRpb24/KS4gVGhlIHRleHQgZmlsZXMgY29udGFpbiBpbmZvcm1hdGlvbiBhYm91dCBlYWNoIGRldGVjdGVkIGNsdXN0ZXIgKGlmIGFueSBhcyBJIGhhZCB0byBkZWJ1ZykuIA0KDQoNCg0KDQoNCiMjIFNhVFNjYW4gUmVzdWx0cyBQcm9jZXNzaW5nDQoNClRoZSBmb2xsb3dpbmcgc2NyaXB0cyByZWFkIHRoZSBvdXRwdXQgdGV4dCBmaWxlcyBhbmQgcGFyc2UgdGhlIGRhdGEgZm9yIGVhY2ggY2x1c3RlciBpbnRvIGEgZGF0YWZyYW1lOg0KDQpgYGB7cn0NCiMgbWVtb3J5IGdyZWVkeSAvIGluZWZmaWNpZW50IGNvZGluZw0Kc291cmNlKCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19SZXN1bHRzX1NhVFNjYW5fSUxJX1NwYXRpYWwuUiIpDQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcm9jZXNzX1Jlc3VsdHNfU2FUU2Nhbl9JTElfU3BhdGlhbDIuUiIpDQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcm9jZXNzX1Jlc3VsdHNfU2FUU2Nhbl9JTElfQUNTLlIiKSAjIG5ldHdvcmsNCnNvdXJjZSgiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfUmVzdWx0c19TYVRTY2FuX0lMSV9HcmF2aXR5LlIiKQ0Kc291cmNlKCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19SZXN1bHRzX1NhVFNjYW5fSUxJX1JhZGlhdGlvbi5SIikNCg0KIyBjb3ZpZA0Kc291cmNlKCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19SZXN1bHRzX1NhVFNjYW5fQ09WSURfU3BhdGlhbC5SIikNCnNvdXJjZSgiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfUmVzdWx0c19TYVRTY2FuX0NPVklEX0FDUy5SIikNCnNvdXJjZSgiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfUmVzdWx0c19TYVRTY2FuX0NPVklEX0dyYXZpdHkuUiIpDQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcm9jZXNzX1Jlc3VsdHNfU2FUU2Nhbl9DT1ZJRF9SYWRpYXRpb24uUiIpDQpgYGANCg0KDQoNCg0KDQoNCg0KDQoNClRoZW4sIHRoZXNlIHNjcmlwdHMgZnVydGhlciBwcm9jZXNzIHRoZSBzYXRzY2FuIHJlc3VsdHMgdG8gdHJhbnNmb3JtIHRoZSBkYXRhIGludG8gYW4gYWRqYWNlbmN5IG1hdHJpeCBhbmQgdGhlbiBhIG5ldHdvcmsgb2JqZWN0Og0KDQpgYGB7cn0NCiMgaWxpDQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcm9jZXNzX0RhdGFfU2FUU2Nhbl9JTElfU3BhdGlhbF9OZXR3b3JrLlIiKQ0Kc291cmNlKCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19EYXRhX1NhVFNjYW5fSUxJX1NwYXRpYWwyX05ldHdvcmsuUiIpDQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcm9jZXNzX0RhdGFfU2FUU2Nhbl9JTElfQUNTX05ldHdvcmsuUiIpDQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcm9jZXNzX0RhdGFfU2FUU2Nhbl9JTElfR3Jhdml0eV9OZXR3b3JrLlIiKQ0Kc291cmNlKCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19EYXRhX1NhVFNjYW5fSUxJX1JhZGlhdGlvbl9OZXR3b3JrLlIiKQ0KDQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcm9jZXNzX0RhdGFfU2FUU2Nhbl9JTElfU3BhdGlhbHNlYXNvbmFsX05ldHdvcmsuUiIpDQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcm9jZXNzX0RhdGFfU2FUU2Nhbl9JTElfU3BhdGlhbDJzZWFzb25hbF9OZXR3b3JrLlIiKQ0Kc291cmNlKCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19EYXRhX1NhVFNjYW5fSUxJX0FDU3NlYXNvbmFsX05ldHdvcmsuUiIpDQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcm9jZXNzX0RhdGFfU2FUU2Nhbl9JTElfR3Jhdml0eXNlYXNvbmFsX05ldHdvcmsuUiIpDQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcm9jZXNzX0RhdGFfU2FUU2Nhbl9JTElfUmFkaWF0aW9uc2Vhc29uYWxfTmV0d29yay5SIikNCg0KDQojIGNvdmlkDQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcm9jZXNzX0RhdGFfU2FUU2Nhbl9DT1ZJRF9TcGF0aWFsX05ldHdvcmsuUiIpDQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcm9jZXNzX0RhdGFfU2FUU2Nhbl9DT1ZJRF9BQ1NfTmV0d29yay5SIikNCnNvdXJjZSgiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9TYVRTY2FuX0NPVklEX0dyYXZpdHlfTmV0d29yay5SIikNCnNvdXJjZSgiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9TYVRTY2FuX0NPVklEX1JhZGlhdGlvbl9OZXR3b3JrLlIiKQ0KYGBgDQoNClRoZXNlIHdpbGwgYmUgdHJhbnNmZXJyZWQgdG8gYW5vdGhlciByZXBvIGZvciBhIHNlY29uZGFyeSBhbmFseXNpcy4gDQoNCg0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlJlcHJvZHVjaWJpbGl0eSBOb3RlYm9vayINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCiMgUHJvamVjdCBPdmVydmlldw0KDQpUaGlzIHJlcG9zaXRvcnkgLyBjb2xsZWN0aW9uIG9mIHNjcmlwdHMgaXMgYSBjb21wb25lbnQgb2YgQ29keSBEYWlsZXkncyBkaXNzZXJ0YXRpb24gcmVzZWFyY2guIEFsdG9nZXRoZXIsIHRoZSBzY29wZSBvZiB0aGlzIGRpc3NlcnRhdGlvbiByZXNlYXJjaCBzcGFucyB0aGUgc3BhdGlhbCBlcGlkZW1pb2xvZ3kgYW5kIGV2b2x1dGlvbiBvZiBzZWFzb25hbCBpbmZsdWVuemEgaW4gdGhlIFVuaXRlZCBTdGF0ZXMgZnJvbSAyMDEwIHRvIDIwMjAuIEhlcmUsIEkgZm9jdXMgb24gYW4gaW5pdGlhbCBleHBsb3JhdGlvbiBvZiBpbmZsdWVuemEtbGlrZSBpbGxuZXNzIGluY2lkZW5jZSBhbmQgc2Vhc29uYWwgZXBpZGVtaWMgaW50ZW5zaXR5LiAgIA0KICANCj4gSG93IGRvIHlvdSBlYXQgYW4gZWxlcGhhbnQ/ICANCj4gICANCj4+IE9uZSBiaXRlIGF0IGEgdGltZS4gIA0KICANCiMjIERvY3VtZW50IE92ZXJ2aWV3DQoNClRoaXMgZG9jdW1lbnQgaXMgbXkgInJlcHJvZHVjaWJpbGl0eSBub3RlYm9vayIsIGJhc2ljYWxseSwgYSBkYXRhIGFuYWx5c3QncyB2ZXJzaW9uIG9mIGEgbGFiIG5vdGVib29rLiBJdCBjb250YWlucyAoaG9wZWZ1bGx5KSBhbiBlYXN5LXRvLWZvbGxvdyBkZXNjcmlwdGlvbiBvZiBkYXRhIG1hbmFnZW1lbnQgYW5kIGFuYWx5c2VzIHdpdGggYXNzb2NpYXRlZCBzY3JpcHRzLiBNeSBnb2FsIHdpdGggdGhpcyBkb2N1bWVudCBpcyB0byBlbnN1cmUgcmVwcm9kdWNpYmlsaXR5IGluIG15IHJlc2VhcmNoLiBCZWxvdywgSSB3aWxsIGRlc2NyaWJlIG5lY2Vzc2FyeSBzdGVwcyBpbiBteSB3b3JrZmxvdyB3aGlsZSBzb3VyY2luZyB2YXJpb3VzIHNjcmlwdHMgdG8gaW1wbGVtZW50IC8gZXhlY3V0ZSB0aGlzIHdvcmtmbG93LiBOb3RlIHRoYXQgdGhpcyBpcyBzdXBwbGVtZW50YWwgaW5mb3JtYXRpb24gdG8gdGhlIHRyYWRpdGlvbmFsIHNjaWVudGlmaWMgbWFudXNjcmlwdCAod2hpY2ggaXMgZm91bmQgaW4gYW5vdGhlciBkb2N1bWVudCkgYW5kIHdpbGwgaW5jbHVkZSBtdWNoIG1vcmUgdGVjaG5pY2FsIGRldGFpbHMgYW5kIGFuYWx5dGljYWwgZGVjaXNpb25zIC8gY29tbWVudGFyeS4gDQoNCg0KDQojIE9iamVjdGl2ZQ0KDQoqIFRvIGlkZW50aWZ5IHNwYXRpYWwgYW5kIG5ldHdvcmsgY2x1c3RlcmluZyBwYXR0ZXJucyBpbiBpbmZsdWVuemEtbGlrZSBpbGxuZXNzIGluIHRoZSBVUyBmcm9tIDIwMTEgdG8gMjAyMA0KDQoNCiMgQXBwcm9hY2gNCg0KDQojIyBEYXRhIFByb2Nlc3NpbmcgLyBJbml0aWFsIENsZWFuaW5nDQoNCg0KDQojIyMgSW5mbHVlbnphLWxpa2UgSWxsbmVzcw0KSUxJIGRhdGEgZnJvbSBGbHVWaWV3IGFuZCBGbG9yaWRhIERlcGFydG1lbnQgb2YgUHVibGljIEhlYWx0aCB3ZXJlIHByb2Nlc3NlZCB1c2luZyBmb2xsb3dpbmcgc2NyaXB0Og0KDQpEYXRhIHdlcmUgc3RvcmVkIGluIGEgZGF0YWZyYW1lIHdpdGggZWFjaCByb3cgY29ycmVzcG9uZGluZyB0byBhIHNwZWNpZmljIGxvY2F0aW9uIChzdGF0ZSkgZHVyaW5nIGEgc3BlY2lmaWMgd2VlayAoZXBpIHdlZWsgYW5kIGRhdGUpIHdpdGggdGhlIHJlcG9ydGVkIGNvdW50cyBvZiBJTEkgYW5kIHRvdGFsIHBhdGllbnRzIGZvciB0aGF0IGxvY2F0aW9uIGR1cmluZyB0aGF0IHdlZWsuIA0KDQpEYXRhIHdlcmUgb3JpZ2luYWxseSBzcGxpdCBmb3IgTmV3IFlvcmsgQ2l0eSBhbmQgTmV3IFlvcms7IEkgc3VtbWVkIHRob3NlIHRvIGEgc2luZ2xlIGxvY2F0aW9uLiBBbHNvLCBkYXRhIGZyb20gRmx1VmlldyBhcmUgbWlzc2luZyBGbG9yaWRhIGRhdGEgY29tcGxldGVseSwgYnV0IExEIHdhcyBhYmxlIHRvIG9idGFpbiBkYXRhIGZyb20gdGhlIEZsb3JpZGEgRGVwYXJ0bWVudCBvZiBQdWJsaWMgSGVhbHRoLiBUaGUgZGF0YSBncmVhdGx5IG92ZXJsYXAsIGJ1dCB0aGUgRmxvcmlkYSBkYXRhIHNlZW1zIHRvIGJlIG1pc3Npbmcgc29tZSBvZiB0aGUgZWFybGllc3QgYW5kIGxhdGVzdCBkYXRhIChlZmZlY3RpdmVseSB0cmltbWluZyB0aGUgZGF0YXNldCBmcm9tIGJvdGggdGltZXBvaW50cyBlbmRzKS4gDQoNCmBgYHtyfQ0Kc291cmNlKCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19EYXRhX0lMSS5SIikNCmBgYA0KDQpgYGB7cn0NCnNvdXJjZSgiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9JTElfUmF0ZXNfb2ZfQ2hhbmdlLlIiKQ0KYGBgDQoNCg0KDQojIyMgTW9iaWxpdHkgRGF0YQ0KDQpXb3JrZXIgY29tbXV0aW5nIGZsb3dzIGZyb20gdGhlIEFtZXJpY2FuIENvbW11bml0eSBTdXJ2ZXkgZm9yIGJvdGggMjAxMS0yMDE1IGFuZCAyMDE2LTIwMjAgYXJlIGRvd25sb2FkZWQgYXMgZXhjZWwgc3ByZWFkc2hlZXRzLCB0aG91Z2ggbm90IGluIGEgdGlkeSBkYXRhIGZvcm1hdCAoZS5nLiwgdGhlcmUgaXMgZXh0cmEgZmx1ZmYgYXQgdGhlIHRvcCBhbmQgYm90dG9tIG9mIHRoZSBleGNlbCB0YWJsZXMpLiBUaGUgQUNTIGRhdGEgZXNzZW50aWFsbHkgY29udGFpbiBmb3VyIG1haW4gdmFyaWFibGVzOiBhIGxvY2F0aW9uIG9mIHJlc2lkZW5jZSwgYSBsb2NhdGlvbiBvZiB3b3JrLCBhIHBvaW50IGVzdGltYXRlIG9mIHRoZSBudW1iZXIgb2Ygd29ya2VycyBjb21tdXRpbmcgYmV0d2VlbiB0aGUgdHdvIGxvY2F0aW9ucywgYW5kIGFuIGVzdGltYXRlIG9mIHVuY2VydGFpbnR5IChpLmUuLCBtYXJnaW4gb2YgZXJyb3IpIGZvciB0aGUgcG9pbnQgZXN0aW1hdGUuIFRoZXNlIGRhdGEgYXJlIGFnZ3JlZ2F0ZWQgdG8gdGhlIHN0YXRlIGxldmVsIHRvIGFsaWduIHdpdGggdGhlIElMSSBkYXRhLiBJbiBhZ2dyZWdhdGluZyB0aGUgZGF0YSB0byB0aGUgc3RhdGUgbGV2ZWwsIHRoZSBtZWFzdXJlIG9mIHVuY2VydGFpbnR5IGlzIGxvc3Q7IGlzIHRoZXJlIGEgc2ltcGxlIHdheSB0byBhY2NvdW50IGZvciBlYWNoIG1hcmdpbiBvZiBlcnJvciBpbiBhZ2dyZWdhdGUgZGF0YT8gRm9yIG5vdywgd2Ugd2lsbCBmb2N1cyBvbiB0aGUgbG9jYXRpb25zIGFuZCB0aGUgcG9pbnQgZXN0aW1hdGUgYW5kIHBvdGVudGlhbGx5IHJldHVybiB0byB0aGUgdW5jZXJ0YWludHkgbGF0ZXIgZm9yIHNlbnNpdGl2aXR5IGFuYWx5c2VzLiAgIA0KICANClRoZSBwcm9jZXNzIHNjcmlwdCBpcyBzaW1wbGUgZW5vdWdoIGFzIGl0IGp1c3QgbG9hZHMgdGhlIGRhdGEsIGNhdGVnb3JpemVzIHRoZSB0eXBlIG9mIGNvbW11dGVyIGZsb3cgKGludHJhY291bnR5LCBpbnRyYXN0YXRlLCBpbnRlcnN0YXRlLCBpbnRlcm5hdGlvbmFsKSwgYWdncmVnYXRlcyB0b3RhbHMgdG8gdGhlIHN0YXRlIGxldmVsLCBjb21iaW5lcyB0aGUgZGF0YSBmcm9tIGJvdGggdGltZSByYW5nZXMsIGFuZCB0aGVuIHNhdmVzIGFuIC5yZHMgZmlsZS4gQWRkaXRpb25hbGx5LCB0aGUgZGF0YSBhcmUgZXhwYW5kZWQgdG8gaGF2ZSBlbnRyaWVzIGZvciBhbGwgcG9zc2libGUgY29tYmluYXRpb25zIG9mIGxvY2F0aW9uczsgdGhpcyBhbGxvd3MgbWUgdG8gbm90ZSB0aGUgInVub2JzZXJ2ZWQiIGZsb3dzLiAgDQoNClRoZSBzY3JpcHQgaXMgc291cmNlZCB1c2luZyB0aGUgZm9sbG93aW5nIGNvZGU6DQpgYGB7cn0NCnNvdXJjZSgiLi8wMi1TY3JpcHRzLzAxLURhdGEtV3JhbmdsaW5nL3Byb2Nlc3NfRGF0YV9BQ1MuUiIpDQpgYGANCg0KIyMjIFNwYXRpYWwgRGF0YQ0KDQpOZXh0LCB3ZSBwcm9jZXNzIHNvbWUgc3BhdGlhbCBkYXRhOiBzaGFwZWZpbGVzIGZvciBVUyBjb3VudGllcyBhbmQgc3RhdGVzLCBjb29yZGluYXRlcyBmb3IgcG9wdWxhdGlvbiBjZW50ZXJzIGZvciBjb3VudGllcyBhbmQgc3RhdGVzDQoNCmBgYHtyfQ0Kc291cmNlKCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJvY2Vzc19EYXRhX1NwYXRpYWwuUiIsIGVjaG8gPSBUKQ0KYGBgDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KIyMgRGF0YSBNYW5hZ2VtZW50ICYgQW5hbHlzaXMgU2V0dXANCg0KDQojIyMgV3JpdGluZyBTYVRTY2FuIERhdGEgSW5wdXQgRmlsZXMNCg0KTmV4dCwgd2UgbmVlZCB0byB3cml0ZSB0aGUgZmlsZXMgZm9yIGlucHV0IGluIFNhVFNjYW4uIEJhc2ljYWxseSBhIGNvb3JkaW5hdGVzIGZpbGUgdXNlZCBpbiBzcGF0aWFsIHNjYW4gc3RhdGlzdGljcyAobG9jYXRpb24tbGFiZWwgbGF0IGxvbikgKGdvaW5nIHRvIHJldmlzaXQgdGhpcyBhcyB5b3UgY2FuIHN1cHBseSBhIG5ldHdvcmsgd2l0aCBwYWlyd2lzZSBkaXN0YW5jZXMsIGludmVydGVkIGNvbW11dGVyIGZsb3c/KTsgYSAiY2FzZSIgZmlsZSwgaGVyZSB0aGUgcHJvcG9ydGlvbnMgb2YgY3VtdWxhdGl2ZSBpbmNpZGVuY2UgKHNxdWFyZSByb290IHRyYW5zZm9ybWVkKSBPUiAoIjIiIHN1ZmZpeCkgdGhlIHN1Yi1jb21wb25lbnQgb2Ygc2hhbm5vbiBlbnRyb3B5IChzcXJ0KHAqbG9nKHApKTsgYWxzbyBzcXVhcmUgcm9vdCB0cmFuc2Zvcm1lZCBhcyBpbmRpY2F0ZWQpLiBUaGUgbWV0aG9kIGFzc3VtZXMgYSBub3JtYWxseSBkaXN0cmlidXRlZCBjb250aW51b3VzIHZhcmlhYmxlLiANCg0KSW4gYWRkaXRpb24gdG8gYSAibm9ybWFsbHkiIGRpc3RyaWJ1dGVkICJjYXNlIiBjaGFyYWN0ZXJpc3RpYywgZWFjaCB2YWx1ZSBuZWVkcyBhIHdlaWdodCBhc3NpZ25lZCB0byBpdCBzbyB0aGF0IHRoZSB1bmRlcmx5aW5nIGxvZ2ljL3JhdGlvbmFsZSAvIHZhcmlhbmNlIGVzdGltYXRpb24gdW5kZXJzdGFuZHMgdGhhdCB0aGUgZ2l2ZW4gdmFsdWUgaXMgYW4gImF2ZXJhZ2UiIGZvciB0aGUgZW50aXJlIHJlZ2lvbiAob3IgZGF0YSBzYW1wbGUpLiBJIGZvdW5kIGluIHRoZSBoZWxwIGRvY3VtZW50YXRpb24gZm9yIHNhdHNjYW4gdGhhdCBhIHBvcHVsYXRpb24gY2FuIGJlIHVzZWQgaW5zdGVhZCBvZiBhIHdlaWdodC4gU28sIGF0IGZpcnN0IEkgdGhvdWdodCB0byB1c2UgdGhlIGN1bXVsYXRpdmUgdG90YWwgcGF0aWVudHMgKHRoZSB3ZWVrbHkgZGVub21pbmF0b3IgZm9yIElMSSBkYXRhKS4gSG93ZXZlciwgSSdtIGFsc28gdGhpbmsgdGhhdCBpdCBtYXkgYmUgYmV0dGVyIHRvIHVzZSB0aGUgY3VtdWxhdGl2ZSB0b3RhbCBwYXRpZW50cyBjb3VudCBmb3IgYSBzaW5nbGUgbG9jYXRpb24gc2Vhc29uIGZvciBlYWNoIHdlZWsgaW4gdGhhdCBzZWFzb24uIEJ1dCBpbSB0b3JuLiBWYXJpYW5jZSBpbiBwcm9wb3J0aW9uIG9mIGN1bXVsYXRpdmUgSUxJIG1heSBkZXBlbmQgb24gLi4uIHByb3BvcnRpb24gb2Ygb2JzZXJ2ZWQgcGF0aWVudHMgYXQgdGhhdCBsb2NhdGlvbiBkdXJpbmcgdGhhdCB3ZWVrLiBJIGRvbid0IHRoaW5rIGl0IHNob3VsZCBiZSB0aGUgcmF3IGNvdW50cyBmb3IgZWl0aGVyIElMSSBvciB0b3RhbCBwYXRpZW50cywgdGhlIHdob2xlIHByb3BvcnRpb24gY2FsY3VsYXRpb24gaXMgYSB3b3JrIGFyb3VuZCB0byBrbm93biBiaWFzLiBTbywgd2UnbGwganVzdCBnbyB3aXRoIHRvdGFsIHBhdGllbnRzIGZvciBub3cuIA0KDQoNCg0KQ2FzZSBmaWxlIGhhcyAobG9jYXRpb24tbGFiZWwgd2VlayB2YWx1ZSB2YWx1ZS13ZWlnaHQpLiBTbywgYW4gaW5kaXZpZHVhbCBjYXNlIGZpbGUgaXMgd3JpdHRlbiBmb3IgZWFjaCB3ZWVrOyB0aGUgY29vcmRpbmF0ZXMgZmlsZSBpcyBzZXQgb25jZS4gVGhlIHRleHQgZmlsZXMgYXJlIHdyaXR0ZW4gaW4gdGhlIGZvbGxvd2luZyBzY3JpcHRzOg0KDQoNCg0KYGBge3J9DQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcmVwX0ZpbGVzX1NhVFNjYW5fSUxJLlIiKQ0KYGBgDQoNCg0KDQoNCmBgYHtyfQ0Kc291cmNlKCIuLzAyLVNjcmlwdHMvMDEtRGF0YS1XcmFuZ2xpbmcvcHJlcF9GaWxlc19TYVRTY2FuX0FkamFjZW5jeS5SIikNCmBgYA0KDQoNCg0KDQojIyMgU2FUU2NhbiBQYXJhbWV0ZXJzDQoNCkludGVybWVkaWF0ZSBzdGVwLCBtYW51YWxseSBjcmVhdGUgYSBwYXJhbWV0ZXJzIGZpbGUgZm9yIHNhdHNjYW4gdG8gcmVhZC4gSSB0aGluayBgc2F0c2NhbmAgcGFja2FnZSBoZWxwcyB3aXRoIHRoYXQgYnV0IEkganVzdCB1c2VkIGd1aSB0byBzYXZlIGZpbGUgYWZ0ZXIgbWFudWFsbHkgc2VsZWN0aW5nIG9wdGlvbnMuIA0KDQoNCg0KIyMgQW5hbHlzaXMgLSBTYVRTY2FuIA0KDQpOZXh0LCBJIHdyb3RlIHNjcmlwdHMgdG8gc2VuZCBjb21tYW5kcyB0byB0aGUgY29tbWFuZCBwcm9tcHQgdG8gcnVuIHRoZSBzYXRzY2FuIGJhdGNoIG1vZGUgKGV4ZWN1dGFibGUgZmlsZT8gaWRrIGhvdyB0byBzYXkpLiBUaGUgb25seSBvcHRpb24gbmVlZGVkIHRoZXJlIGlzIGEgcGFyYW1ldGVycyBmaWxlIGluZGljYXRpbmcgdGhlIGlucHV0IGZpbGVzIChjb29yZGluYXRlcywgY2FzZXMsIC4uLikgYW5kIHRoZSBtb2RlbCBvcHRpb25zLiANCg0KVGhlIHNjcmlwdCBsb29wcyBvdmVyIGxpc3Qgb2YgZGF0ZXMgYW5kIHJlcGxhY2VzIHRoZSBpbnB1dCBmaWxlIHN0cmluZyBpbiB0aGUgcGFyYW1ldGVycyBmaWxlIHdpdGggZWFjaCBydW4uIFNvLCB0aGUgcHJvZ3JhbSBkb2VzIGEgcHVyZWx5IHNwYXRpYWwgY2x1c3RlcmluZyBhbmFseXNpcyBhc3N1bWluZyBhIGNvbnRpbnVvdXNseSBkaXN0cmlidXRlZCBvdXRjb21lIHZhcmlhYmxlLiANCg0KYGBge3J9DQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wNC1BbmFseXNpcy9ydW5fUHJvZ3JhbV9TYVRTY2FuLlIiKQ0KYGBgDQoNCg0KRWFjaCBTYVRTY2FuIHJ1biBnZW5lcmF0ZXMgYW4gb3V0cHV0IHRleHQgZmlsZSAoY2FuIGRvIHNoYXBlZmlsZXMgYW5kIG1heWJlIFIgcGFja2FnZSByZWFkYWJsZSBmaWxlcyB0b28sIGJ1dCB3aG8gbGlrZXMgZWFzeSBpbnRlZ3JhdGlvbj8pLiBUaGUgdGV4dCBmaWxlcyBjb250YWluIGluZm9ybWF0aW9uIGFib3V0IGVhY2ggZGV0ZWN0ZWQgY2x1c3RlciAoaWYgYW55IGFzIEkgaGFkIHRvIGRlYnVnKS4gDQoNCg0KDQoNCg0KIyMgU2FUU2NhbiBSZXN1bHRzIFByb2Nlc3NpbmcNCg0KVGhlIGZvbGxvd2luZyBzY3JpcHQgcmVhZHMgdGhlIG91dHB1dCB0ZXh0IGZpbGVzIGFuZCBwYXJzZSB0aGUgZGF0YSBmb3IgZWFjaCBjbHVzdGVyIGludG8gYSBkYXRhZnJhbWU6DQoNCg0KYGBge3J9DQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMS1EYXRhLVdyYW5nbGluZy9wcm9jZXNzX1Jlc3VsdHNfU2FUU2Nhbi5SIikNCmBgYA0KDQpUaGVzZSB3aWxsIGJlIHRyYW5zZmVycmVkIHRvIGFub3RoZXIgcmVwbyBmb3IgYSBzZWNvbmRhcnkgYW5hbHlzaXMuIA0KDQoNCg0KIyMgVmlzdWFsaXphdGlvbnMNCg0KYGBge3J9DQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMy1WaXN1YWxpemF0aW9uL2dlbmVyYXRlX1RhYmxlX1N1bW1hcmllcy5SIikNCmBgYA0KDQoNCmBgYHtyfQ0Kc291cmNlKCIuLzAyLVNjcmlwdHMvMDMtVmlzdWFsaXphdGlvbi9nZW5lcmF0ZV9GbGV4dGFibGVfU3VtbWFyaWVzLlIiKQ0KYGBgDQoNCg0KYGBge3J9DQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMy1WaXN1YWxpemF0aW9uL2dlbmVyYXRlX0ZpZ3VyZXNfQ2x1c3RlcnNfb3Zlcl9UaW1lLlIiKQ0KYGBgDQoNCg0KYGBge3J9DQpzb3VyY2UoIi4vMDItU2NyaXB0cy8wMy1WaXN1YWxpemF0aW9uL2dlbmVyYXRlX0ZpZ3VyZXNfQ2x1c3Rlcl9Db21wb3NpdGVzLlIiKQ0KYGBgDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg==</div>
 
 
 
